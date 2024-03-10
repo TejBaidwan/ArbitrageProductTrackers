@@ -1,4 +1,4 @@
-package com.example.arbitragetracker;
+package com.example.arbitragetracker.scanner;
 
 import android.os.Bundle;
 
@@ -10,10 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.arbitragetracker.Product;
+import com.example.arbitragetracker.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -85,6 +88,9 @@ public class ScannerFragment extends Fragment {
         Button scanBtn = view.findViewById(R.id.scanButton);
         Button addBtn = view.findViewById(R.id.addButton);
         TextView scannerOutput = view.findViewById(R.id.scannerOutput);
+        EditText manualEditText = view.findViewById(R.id.manualEnterEditText);
+        Button manualEnterButton = view.findViewById(R.id.manuallyEnterBtn);
+
         prodName = view.findViewById(R.id.productTitle);
         prodDesc = view.findViewById(R.id.productDescription);
         prodPrice = view.findViewById(R.id.productPrice);
@@ -96,6 +102,16 @@ public class ScannerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 handleScan(scannerOutput);
+            }
+        });
+
+        manualEnterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String barcode = manualEditText.getText().toString();
+                if (barcode.length() == 12){
+                    getProduct(barcode);
+                }else Toast.makeText(requireContext(), "Barcode must be 12 digits in length!", Toast.LENGTH_SHORT).show();
             }
         });
 

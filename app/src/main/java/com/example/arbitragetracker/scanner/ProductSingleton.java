@@ -1,4 +1,4 @@
-package com.example.arbitragetracker;
+package com.example.arbitragetracker.scanner;
 
 import android.content.Context;
 
