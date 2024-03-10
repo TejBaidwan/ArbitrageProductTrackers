@@ -21,6 +21,7 @@ import com.google.mlkit.vision.barcode.common.Barcode;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
+import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +43,7 @@ public class ScannerFragment extends Fragment {
     ImageView productImg;
     String barcodeValue = null;
 
+    ProductAPI productAPI;
     Product productOnScreen;
 
     public ScannerFragment() {
@@ -88,6 +90,8 @@ public class ScannerFragment extends Fragment {
         prodPrice = view.findViewById(R.id.productPrice);
         productImg = view.findViewById(R.id.productImg);
 
+        productAPI = new ProductAPI(getContext());
+
         scanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,6 +101,31 @@ public class ScannerFragment extends Fragment {
 
         return view;
     }
+
+    //get product information from the barcode and handle errors
+    private void getProduct(String barcode){
+        productAPI.getProduct(barcode, new ProductAPI.ProductListener() {
+            @Override
+            public void onProductReceived(Product product) {setProductValues(product);}
+            @Override
+            public void onFetchError() {Toast.makeText(requireContext(), "Error fetching product", Toast.LENGTH_SHORT).show();}
+            @Override
+            public void onInvalidBarcode() {Toast.makeText(requireContext(), "Invalid barcode", Toast.LENGTH_SHORT).show();}
+        });
+    }
+
+    //set the retrieved product data to the ui
+    private void setProductValues(Product product){
+        prodName.setText(product.getName());
+        prodDesc.setText(product.getDescription());
+        prodPrice.setText(String.valueOf(product.getPrice()));
+        Log.d("TAG", "URL" + product.getImgUrl());
+        if (productImg!=null){
+            Picasso.get().load(product.getImgUrl()).into(productImg);
+        }
+        productOnScreen = product;
+    }
+
 
     private Task<Barcode> startScan() {
         //Sets settings for the scanner
@@ -110,6 +139,7 @@ public class ScannerFragment extends Fragment {
         return scanner.startScan();
     }
 
+
     //This allows for the output to be returned
     private void handleScan(TextView scannerOutput) {
         startScan().addOnSuccessListener(new OnSuccessListener<Barcode>() {
@@ -120,6 +150,9 @@ public class ScannerFragment extends Fragment {
                 scannerOutput.setText("Code: " + barcodeValue);
 
                 //get the product data after scanning
+                if (barcodeValue != null){
+                    getProduct(barcodeValue);
+                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -130,4 +163,5 @@ public class ScannerFragment extends Fragment {
             }
         });
     }
+
 }
