@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class ProductDatabase extends SQLiteOpenHelper {
+    private static ProductDatabase instance;
+
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "product_database";
 
@@ -110,4 +112,13 @@ public class ProductDatabase extends SQLiteOpenHelper {
         db.close();
         Log.d("PRODUCT_DB", "All products deleted.");
     }
+
+    // Singleton instance getter
+    public static ProductDatabase getInstance(Context context) {
+        if (instance == null) {
+            instance = new ProductDatabase(context.getApplicationContext());
+        }
+        return instance;
+    }
+
 }

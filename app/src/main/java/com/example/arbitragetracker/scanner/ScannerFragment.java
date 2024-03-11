@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.arbitragetracker.Product;
+import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,6 +47,7 @@ public class ScannerFragment extends Fragment {
     ImageView productImg;
     String barcodeValue = null;
 
+    ProductDatabase db;
     ProductAPI productAPI;
     Product productOnScreen;
 
@@ -98,6 +100,7 @@ public class ScannerFragment extends Fragment {
 
         productAPI = new ProductAPI(getContext());
 
+        //Starts scan with camera
         scanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +108,7 @@ public class ScannerFragment extends Fragment {
             }
         });
 
+        //Searches for products manually with a code
         manualEnterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,6 +116,18 @@ public class ScannerFragment extends Fragment {
                 if (barcode.length() == 12){
                     getProduct(barcode);
                 }else Toast.makeText(requireContext(), "Barcode must be 12 digits in length!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Adds products to the database
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                db = ProductDatabase.getInstance(getContext());
+                if (productOnScreen!= null){
+                    db.addProduct(productOnScreen);
+                    Toast.makeText(requireContext(), "Product Added", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

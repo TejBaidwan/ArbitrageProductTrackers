@@ -25,6 +25,11 @@
     <fragment
         android:id="@+id/nav_scanner"
         android:name="com.example.arbitragetracker.scanner.ScannerFragment"
-        android:label="fragment_scanner"
+        android:label="Scanner"
         tools:layout="@layout/fragment_scanner" />
+    <fragment
+        android:id="@+id/nav_recycler"
+        android:name="com.example.arbitragetracker.productRecycler.ProductRecycler"
+        android:label="My Products"
+        tools:layout="@layout/fragment_product_recycler" />
 </navigation>
