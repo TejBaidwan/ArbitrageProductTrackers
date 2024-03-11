@@ -29,8 +29,6 @@ public class ProductRecycler extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ProductDatabase db;
-
     public ProductRecycler() {
         // Required empty public constructor
     }
@@ -67,7 +65,7 @@ public class ProductRecycler extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_recycler, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.productRecycler);
-        db = ProductDatabase.getInstance(getContext());
+        ProductDatabase db = new ProductDatabase(getContext());
 
         ProductRecyclerAdapter adapter = new ProductRecyclerAdapter(db.getAllProducts(), getContext());
         recyclerView.setAdapter(adapter);
