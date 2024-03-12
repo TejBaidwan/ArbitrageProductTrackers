@@ -1,5 +1,7 @@
 package com.example.arbitragetracker.welcomePage;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.arbitragetracker.R;
 
@@ -61,6 +64,18 @@ public class Welcome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_welcome, container, false);
+        View view = inflater.inflate(R.layout.fragment_welcome, container, false);
+
+        //Find Button and set intent when clicked
+        Button webLink = view.findViewById(R.id.webLinkOne);
+        webLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.junglescout.com/blog/amazon-retail-arbitrage/"));
+                startActivity(i);
+            }
+        });
+
+        return view;
     }
 }
