@@ -12,4 +12,9 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="welcomeDrawer">Welcome</string>
+    <string name="welcomeTitle">Welcome to the ArbitrageProductTracker</string>
+    <string name="welcomeContent">Welcome to the ArbitrageProductTracker!\n\n This application allows you to keep track of your selling inventory for your Retail Arbitrage quests! The application allows you to learn more about selling products online with links to helpful resources found below.\n\n There is page which allows you to add products to your inventory through either scanning a product UPC, or manually entering a product UPC.\n\n Your inventory keeps track of your stock that you have, and can be edited, deleted, and added to at your discretion.\n\n There are statistics given to you about your inventory which can help you analyze your current selling situation and make choices.</string>
+    <string name="webLinkIntent">Learn about Amazon FBA from JungleScout</string>
 </resources>
