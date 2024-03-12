@@ -22,4 +22,14 @@
         android:name="com.example.arbitragetracker.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_scanner"
+        android:name="com.example.arbitragetracker.scanner.ScannerFragment"
+        android:label="Scanner"
+        tools:layout="@layout/fragment_scanner" />
+    <fragment
+        android:id="@+id/nav_recycler"
+        android:name="com.example.arbitragetracker.productRecycler.ProductRecycler"
+        android:label="My Products"
+        tools:layout="@layout/fragment_product_recycler" />
 </navigation>
