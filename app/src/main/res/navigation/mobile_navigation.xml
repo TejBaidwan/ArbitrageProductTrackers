@@ -37,4 +37,9 @@
         android:name="com.example.arbitragetracker.welcomePage.Welcome"
         android:label="Welcome!"
         tools:layout="@layout/fragment_welcome" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.arbitragetracker.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
 </navigation>

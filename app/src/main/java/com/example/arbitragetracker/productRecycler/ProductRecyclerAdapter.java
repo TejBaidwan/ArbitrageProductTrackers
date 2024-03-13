@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.arbitragetracker.MainActivity;
 import com.example.arbitragetracker.Product;
 import com.example.arbitragetracker.ProductDatabase;
+import com.example.arbitragetracker.ProductDetailsFragment;
 import com.example.arbitragetracker.R;
 import com.squareup.picasso.Picasso;
 
@@ -84,7 +86,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         }return 0;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder{
+    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         protected TextView name;
         protected TextView description;
@@ -99,7 +101,18 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
             this.price = itemView.findViewById(R.id.recyclerPrice);
             this.image = itemView.findViewById(R.id.recyclerImage);
             this.delete = itemView.findViewById(R.id.deleteBtn);
+            itemView.setOnClickListener(this);
+        }
 
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+
+            Product product = products.get(position);
+            Bundle extra = new Bundle();
+            extra.putParcelable(ProductDetailsFragment.PRODUCT, product);
+            Navigation.findNavController(view)
+                    .navigate(R.id.productDetailsFragment, extra);
         }
     }
 }
