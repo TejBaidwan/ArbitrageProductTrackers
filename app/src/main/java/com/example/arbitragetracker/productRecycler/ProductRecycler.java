@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.arbitragetracker.Product;
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
 
@@ -28,6 +29,8 @@ public class ProductRecycler extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ProductDatabase db;
 
     public ProductRecycler() {
         // Required empty public constructor
@@ -65,7 +68,7 @@ public class ProductRecycler extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_recycler, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.productRecycler);
-        ProductDatabase db = new ProductDatabase(getContext());
+        db = ProductDatabase.getInstance(getContext());
 
         ProductRecyclerAdapter adapter = new ProductRecyclerAdapter(db.getAllProducts(), getContext());
         recyclerView.setAdapter(adapter);

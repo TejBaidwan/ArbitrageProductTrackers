@@ -47,6 +47,7 @@ public class ScannerFragment extends Fragment {
     ImageView productImg;
     String barcodeValue = null;
 
+    ProductDatabase db;
     ProductAPI productAPI;
     Product productOnScreen;
 
@@ -98,7 +99,7 @@ public class ScannerFragment extends Fragment {
         productImg = view.findViewById(R.id.productImg);
 
         productAPI = new ProductAPI(getContext());
-        ProductDatabase db = new ProductDatabase(getContext());
+        db = ProductDatabase.getInstance(getContext());
 
         //Starts scan with camera
         scanBtn.setOnClickListener(new View.OnClickListener() {
