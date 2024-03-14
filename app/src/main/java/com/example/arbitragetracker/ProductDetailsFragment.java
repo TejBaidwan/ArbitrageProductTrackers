@@ -3,12 +3,16 @@ package com.example.arbitragetracker;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -30,6 +34,9 @@ public class ProductDetailsFragment extends Fragment {
 
 
     public static final String PRODUCT = "product";
+    public static final int DISPLAY = 1;
+    public static final int ADD = 2;
+    public static final String ACTION_TYPE = "action_type";
     Product product;
 
     public ProductDetailsFragment() {
@@ -75,13 +82,36 @@ public class ProductDetailsFragment extends Fragment {
         TextView detailPrice = view.findViewById(R.id.detailPrice);
         ImageView detailStatBtn = view.findViewById(R.id.detailStatBtn);
         ImageView detailEditBtn = view.findViewById(R.id.detailEditBtn);
+        Button addToInventoryBtn = view.findViewById(R.id.addToInvBtn);
 
         product = getArguments().getParcelable(PRODUCT);
+
+        //only displays the addtoinventory button if it has just been scanned
+        //The button will not display if the productDetails fragment has been reached through the inventory screen
+        if (getArguments().getInt(ACTION_TYPE) == DISPLAY){
+            addToInventoryBtn.setVisibility(View.GONE);
+        }
 
         Picasso.get().load(product.getImgUrl()).into(detailImage);
         detailName.setText(product.getName());
         detailDescription.setText(product.getDescription());
         detailPrice.setText(String.valueOf(product.getPrice()));
+
+
+        //Add product to the database then navigate to the inventory
+        addToInventoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (product != null){
+                    ProductDatabase db = ProductDatabase.getInstance(getContext());
+                    db.addProduct(product);
+                    Toast.makeText(requireContext(), "Product Added", Toast.LENGTH_SHORT).show();
+
+                    Navigation.findNavController(view)
+                            .navigate(R.id.nav_recycler);
+                }
+            }
+        });
         return view;
     }
 }

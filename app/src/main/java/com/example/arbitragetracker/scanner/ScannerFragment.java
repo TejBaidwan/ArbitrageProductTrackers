@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.arbitragetracker.Product;
 import com.example.arbitragetracker.ProductDatabase;
+import com.example.arbitragetracker.ProductDetailsFragment;
 import com.example.arbitragetracker.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -50,6 +53,7 @@ public class ScannerFragment extends Fragment {
     ProductDatabase db;
     ProductAPI productAPI;
     Product productOnScreen;
+    NavController navController;
 
     public ScannerFragment() {
         // Required empty public constructor
@@ -88,15 +92,8 @@ public class ScannerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_scanner, container, false);
         Button scanBtn = view.findViewById(R.id.scanButton);
-        Button addBtn = view.findViewById(R.id.addButton);
-        TextView scannerOutput = view.findViewById(R.id.scannerOutput);
         EditText manualEditText = view.findViewById(R.id.manualEnterEditText);
         Button manualEnterButton = view.findViewById(R.id.manuallyEnterBtn);
-
-        prodName = view.findViewById(R.id.productTitle);
-        prodDesc = view.findViewById(R.id.productDescription);
-        prodPrice = view.findViewById(R.id.productPrice);
-        productImg = view.findViewById(R.id.productImg);
 
         productAPI = new ProductAPI(getContext());
         db = ProductDatabase.getInstance(getContext());
@@ -105,7 +102,7 @@ public class ScannerFragment extends Fragment {
         scanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handleScan(scannerOutput);
+                handleScan();
             }
         });
 
@@ -120,16 +117,16 @@ public class ScannerFragment extends Fragment {
             }
         });
 
-        //Adds products to the database
-        addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (productOnScreen != null){
-                    db.addProduct(productOnScreen);
-                    Toast.makeText(requireContext(), "Product Added", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        //Adds products to the database
+//        addBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (productOnScreen != null){
+//                    db.addProduct(productOnScreen);
+//                    Toast.makeText(requireContext(), "Product Added", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
         return view;
     }
@@ -138,7 +135,7 @@ public class ScannerFragment extends Fragment {
     private void getProduct(String barcode){
         productAPI.getProduct(barcode, new ProductAPI.ProductListener() {
             @Override
-            public void onProductReceived(Product product) {setProductValues(product);}
+            public void onProductReceived(Product product) {navigateToProductScreen(product);}
             @Override
             public void onFetchError() {Toast.makeText(requireContext(), "Error fetching product", Toast.LENGTH_SHORT).show();}
             @Override
@@ -146,16 +143,26 @@ public class ScannerFragment extends Fragment {
         });
     }
 
-    //set the retrieved product data to the ui
-    private void setProductValues(Product product){
-        prodName.setText(product.getName());
-        prodDesc.setText(product.getDescription());
-        prodPrice.setText(String.valueOf(product.getPrice()));
-        Log.d("TAG", "URL" + product.getImgUrl());
-        if (productImg!=null){
-            Picasso.get().load(product.getImgUrl()).into(productImg);
-        }
-        productOnScreen = product;
+//    //set the retrieved product data to the ui
+//    private void setProductValues(Product product){
+//        prodName.setText(product.getName());
+//        prodDesc.setText(product.getDescription());
+//        prodPrice.setText(String.valueOf(product.getPrice()));
+//        Log.d("TAG", "URL" + product.getImgUrl());
+//        if (productImg!=null){
+//            Picasso.get().load(product.getImgUrl()).into(productImg);
+//        }
+//        productOnScreen = product;
+//    }
+
+    //once a product is scanned navigate to the product detail screen with its information
+    private void navigateToProductScreen(Product product){
+        Bundle extra = new Bundle();
+        extra.putInt(ProductDetailsFragment.ACTION_TYPE, ProductDetailsFragment.ADD);
+        extra.putParcelable(ProductDetailsFragment.PRODUCT, product);
+        Navigation.findNavController(getView())
+                .navigate(R.id.productDetailsFragment, extra);
+
     }
 
 
@@ -173,13 +180,12 @@ public class ScannerFragment extends Fragment {
 
 
     //This allows for the output to be returned
-    private void handleScan(TextView scannerOutput) {
+    private void handleScan() {
         startScan().addOnSuccessListener(new OnSuccessListener<Barcode>() {
             @Override
             public void onSuccess(Barcode barcode) {
                 // Handle successful scan
                 barcodeValue = barcode.getRawValue();
-                scannerOutput.setText("Code: " + barcodeValue);
 
                 //get the product data after scanning
                 if (barcodeValue != null){

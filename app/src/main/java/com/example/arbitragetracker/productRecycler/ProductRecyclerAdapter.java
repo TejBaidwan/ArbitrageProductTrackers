@@ -110,6 +110,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
 
             Product product = products.get(position);
             Bundle extra = new Bundle();
+            extra.putInt(ProductDetailsFragment.ACTION_TYPE, ProductDetailsFragment.DISPLAY);
             extra.putParcelable(ProductDetailsFragment.PRODUCT, product);
             Navigation.findNavController(view)
                     .navigate(R.id.productDetailsFragment, extra);
