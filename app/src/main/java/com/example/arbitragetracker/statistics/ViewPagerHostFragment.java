@@ -2,13 +2,19 @@ package com.example.arbitragetracker.statistics;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +22,8 @@ import com.example.arbitragetracker.R;
  * create an instance of this fragment.
  */
 public class ViewPagerHostFragment extends Fragment {
+
+    ViewPager2 viewPager2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +69,20 @@ public class ViewPagerHostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view_pager_host, container, false);
+        View view = inflater.inflate(R.layout.fragment_view_pager_host, container, false);
+        ProductDatabase productDatabase = new ProductDatabase(getContext());
+
+        viewPager2.findViewById(R.id.vpHost);
+        viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), productDatabase));
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        TabLayout tabLayout = view.findViewById(R.id.gallery);
+        new TabLayoutMediator(tabLayout, viewPager2, (tab, position) ->
+                tab.setText((position + 1))).attach();
     }
 }
