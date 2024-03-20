@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
 
 /**
@@ -18,6 +19,8 @@ import com.example.arbitragetracker.R;
  * create an instance of this fragment.
  */
 public class StatisticsFragment extends Fragment {
+
+    private ProductDatabase productDatabase;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,13 +47,14 @@ public class StatisticsFragment extends Fragment {
      * @return A new instance of fragment StatisticsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static StatisticsFragment newInstance(int param1, int param2, double param3) {
+    public static StatisticsFragment newInstance(int param1, int param2, double param3, ProductDatabase database) {
         StatisticsFragment fragment = new StatisticsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PARAM1, param1);
         args.putInt(ARG_PARAM2, param2);
         args.putDouble(ARG_PARAM3, param3);
         fragment.setArguments(args);
+        fragment.productDatabase = database;
         return fragment;
     }
 
