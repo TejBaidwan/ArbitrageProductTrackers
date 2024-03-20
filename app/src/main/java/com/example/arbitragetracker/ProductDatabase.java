@@ -113,6 +113,54 @@ public class ProductDatabase extends SQLiteOpenHelper {
         Log.d("PRODUCT_DB", "All products deleted.");
     }
 
+    //Method to get the total prices
+    public double getTotalPrice() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT SUM(" + COLUMN_PRICE + ") FROM " + TABLE_PRODUCTS, null);
+        double total = 0;
+        if (cursor.moveToFirst()) {
+            total = cursor.getDouble(0);
+        }
+        cursor.close();
+        return total;
+    }
+
+    // Method to get highest price
+    public double getHighestPrice() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT MAX(" + COLUMN_PRICE + ") FROM " + TABLE_PRODUCTS, null);
+        double highest = 0;
+        if (cursor.moveToFirst()) {
+            highest = cursor.getDouble(0);
+        }
+        cursor.close();
+        return highest;
+    }
+
+    // Method to get average price
+    public double getAveragePrice() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT AVG(" + COLUMN_PRICE + ") FROM " + TABLE_PRODUCTS, null);
+        double average = 0;
+        if (cursor.moveToFirst()) {
+            average = cursor.getDouble(0);
+        }
+        cursor.close();
+        return average;
+    }
+
+    // Method to get the total number of items in the table (count)
+    public int getTotalItemCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_PRODUCTS, null);
+        int count = 0;
+        if (cursor.moveToFirst()) {
+            count = cursor.getInt(0);
+        }
+        cursor.close();
+        return count;
+    }
+
     // Singleton instance getter
     public static ProductDatabase getInstance(Context context) {
         if (instance == null) {
