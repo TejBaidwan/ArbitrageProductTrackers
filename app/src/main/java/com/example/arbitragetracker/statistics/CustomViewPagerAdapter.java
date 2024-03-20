@@ -8,14 +8,24 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
 
+/**
+ * This class represents the ViewPager adapter which populates the ViewPager found in the Stats Fragment
+ */
 public class CustomViewPagerAdapter extends FragmentStateAdapter {
+    //Database object
     private ProductDatabase productDatabase;
 
+    //Constructor
     public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, ProductDatabase productDatabase) {
         super(fragmentActivity);
         this.productDatabase = productDatabase;
     }
 
+    /**
+     * This method gets the position the app is in in the ViewPager and populates it with parameters via newInstance()
+     * @param position - The position in the ViewPager
+     * @return Fragment
+     */
     @NonNull
     @Override
     public Fragment createFragment(int position) {
@@ -33,6 +43,10 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
         }
     }
 
+    /**
+     * This method gets the items in this ViewPager Adapter
+     * @return int
+     */
     @Override
     public int getItemCount() {
         return 4;

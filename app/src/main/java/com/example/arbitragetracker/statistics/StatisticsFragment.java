@@ -14,21 +14,19 @@ import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link StatisticsFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * This class represents the StatisticsFragment which contains the VP of stats
  */
 public class StatisticsFragment extends Fragment {
 
+    //Database object
     private ProductDatabase productDatabase;
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
 
-    // TODO: Rename and change types of parameters
+    //Parameters
     private int mParam1;
     private int mParam2;
     private double mParam3;
@@ -58,6 +56,10 @@ public class StatisticsFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * Bundling the information to the next page
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,16 +70,25 @@ public class StatisticsFragment extends Fragment {
         }
     }
 
+    /**
+     * Method which displays information when the view is loaded
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_statistics, container, false);
 
+        //Nodes on the screen
         TextView statsTitle = view.findViewById(R.id.statTitle);
         ImageView statsImage = view.findViewById(R.id.statsImage);
         TextView statsValue = view.findViewById(R.id.statsValue);
 
+        //Setting the values of the nodes to the bundled information
         if (mParam1 != 0 && mParam2 != 0 && mParam3 != 0) {
             statsTitle.setText(mParam1);
             statsImage.setImageResource(mParam2);

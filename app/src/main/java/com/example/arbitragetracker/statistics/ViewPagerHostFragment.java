@@ -17,20 +17,18 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ViewPagerHostFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * This class represents the ViewPagerHost which displays the statistic content
  */
 public class ViewPagerHostFragment extends Fragment {
 
+    //ViewPager2 object
     ViewPager2 viewPager2;
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    //Parameters
     private String mParam1;
     private String mParam2;
 
@@ -56,6 +54,10 @@ public class ViewPagerHostFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * Budnling the information onCreate
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,13 +67,23 @@ public class ViewPagerHostFragment extends Fragment {
         }
     }
 
+    /**
+     * The method which creates the viewpager host and populates it using the custom viewpager adapter
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_pager_host, container, false);
+
+        //Database instance
         ProductDatabase productDatabase = new ProductDatabase(getContext());
 
+        //Finding ViewPager2 and assigning the adapter and page transformer
         viewPager2 = view.findViewById(R.id.vpHost);
         viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), productDatabase));
         viewPager2.setPageTransformer(new DepthPageTransformer());
@@ -79,6 +91,11 @@ public class ViewPagerHostFragment extends Fragment {
         return view;
     }
 
+    /**
+     * This method contains code which creates the TabLayout and sets the values
+     * @param view - The view we are on
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
