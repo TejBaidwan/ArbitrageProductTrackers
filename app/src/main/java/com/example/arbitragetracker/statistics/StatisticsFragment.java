@@ -81,7 +81,7 @@ public class StatisticsFragment extends Fragment {
         if (mParam1 != 0 && mParam2 != 0 && mParam3 != 0) {
             statsTitle.setText(mParam1);
             statsImage.setImageResource(mParam2);
-            statsValue.setText((int) mParam3);
+            statsValue.setText("Result: " + String.valueOf(mParam3));
         }
 
         return view;

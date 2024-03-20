@@ -72,7 +72,7 @@ public class ViewPagerHostFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_view_pager_host, container, false);
         ProductDatabase productDatabase = new ProductDatabase(getContext());
 
-        viewPager2.findViewById(R.id.vpHost);
+        viewPager2 = view.findViewById(R.id.vpHost);
         viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), productDatabase));
 
         return view;
@@ -83,6 +83,6 @@ public class ViewPagerHostFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TabLayout tabLayout = view.findViewById(R.id.gallery);
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) ->
-                tab.setText((position + 1))).attach();
+                tab.setText("#" + (position + 1))).attach();
     }
 }
