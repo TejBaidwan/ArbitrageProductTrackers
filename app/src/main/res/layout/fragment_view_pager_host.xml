@@ -13,10 +13,13 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
         android:textStyle="bold"
+        app:tabTextColor="#4CAF50"
         app:tabIconTint="@color/white" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpHost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#D5D0D0"
+        />
 </LinearLayout>

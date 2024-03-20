@@ -74,6 +74,7 @@ public class ViewPagerHostFragment extends Fragment {
 
         viewPager2 = view.findViewById(R.id.vpHost);
         viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), productDatabase));
+        viewPager2.setPageTransformer(new DepthPageTransformer());
 
         return view;
     }
