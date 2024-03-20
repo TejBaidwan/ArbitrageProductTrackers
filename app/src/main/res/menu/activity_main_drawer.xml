@@ -28,5 +28,10 @@
             android:id="@+id/nav_recycler"
             android:icon="@drawable/ic_baseline_list_24"
             android:title="My Products" />
+        <item
+            android:id="@+id/nav_stats"
+            android:icon="@drawable/ic_baseline_query_stats_24"
+            android:title="Statistics"
+            />
     </group>
 </menu>

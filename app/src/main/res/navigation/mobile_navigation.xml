@@ -40,6 +40,11 @@
     <fragment
         android:id="@+id/productDetailsFragment"
         android:name="com.example.arbitragetracker.ProductDetailsFragment"
-        android:label="fragment_product_details"
+        android:label="ProductDetails"
         tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/nav_stats"
+        android:name="com.example.arbitragetracker.statistics.ViewPagerHostFragment"
+        android:label="Statistics"
+        tools:layout="@layout/fragment_view_pager_host" />
 </navigation>
