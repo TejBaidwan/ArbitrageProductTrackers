@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.arbitragetracker.settings.CurrencyUtil;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -95,8 +96,10 @@ public class ProductDetailsFragment extends Fragment {
         Picasso.get().load(product.getImgUrl()).into(detailImage);
         detailName.setText(product.getName());
         detailDescription.setText(product.getDescription());
-        detailPrice.setText(String.valueOf(product.getPrice()));
-
+        //Display converted price with selected currency symbol
+        String selectedCurrency = CurrencyUtil.getSelectedCurrency(getContext());
+        String priceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(product.getPrice(), selectedCurrency);
+        detailPrice.setText(priceWithSymbol);
 
         //Add product to the database then navigate to the inventory
         addToInventoryBtn.setOnClickListener(new View.OnClickListener() {

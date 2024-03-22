@@ -8,6 +8,7 @@ import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arbitragetracker.R;
 
@@ -27,10 +28,16 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 preferences.edit().putBoolean("anim_disable", disableAnimations).apply();
 
+
+                // Access the RecyclerView and disable animation if needed
+                RecyclerView recyclerView = getActivity().findViewById(R.id.productRecycler);
+                if (recyclerView != null) {
+                    if (disableAnimations) {
+                        recyclerView.setLayoutAnimation(null);
+                    }
+                }
                 return true;
             });
         }
-
-
     }
 }
