@@ -1,0 +1,22 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+    app:key="currency_preference"
+    app:title="Select Currency"
+    app:summary="Choose your preferred currency"
+    app:entries="@array/currency_entries"
+    app:entryValues="@array/currency_values"
+    app:defaultValue="USD"
+    app:dialogTitle="Select Currency"
+    app:icon="@drawable/ic_baseline_currency_exchange_24"
+    />
+
+    <CheckBoxPreference
+        app:key="anim_disable"
+        app:title="Disable Animations"
+        app:summary="Disable animations to help performance"
+        app:defaultValue="false"
+        android:icon="@drawable/ic_baseline_animation_24"/>
+
+</PreferenceScreen>

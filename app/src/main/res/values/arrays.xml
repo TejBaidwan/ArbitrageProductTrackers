@@ -1,0 +1,14 @@
+<resources>
+    <!-- Reply Preference -->
+    <array name="currency_entries">
+        <item>$ (USD)</item>
+        <item>€ (EUR)</item>
+        <item>£ (GBP)</item>
+    </array>
+
+    <array name="currency_values">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+    </array>
+</resources>
