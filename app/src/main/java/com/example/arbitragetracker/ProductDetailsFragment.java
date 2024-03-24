@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.arbitragetracker.scanner.ProductAPI;
 import com.example.arbitragetracker.settings.CurrencyUtil;
 import com.squareup.picasso.Picasso;
 
@@ -39,6 +41,7 @@ public class ProductDetailsFragment extends Fragment {
     public static final int ADD = 2;
     public static final String ACTION_TYPE = "action_type";
     Product product;
+    EbayAPI ebayAPI;
 
     public ProductDetailsFragment() {
         // Required empty public constructor
@@ -85,6 +88,7 @@ public class ProductDetailsFragment extends Fragment {
         ImageView detailEditBtn = view.findViewById(R.id.detailEditBtn);
         Button addToInventoryBtn = view.findViewById(R.id.addToInvBtn);
 
+        ebayAPI = new EbayAPI(getContext());
         product = getArguments().getParcelable(PRODUCT);
 
         //only displays the addtoinventory button if it has just been scanned
@@ -115,6 +119,26 @@ public class ProductDetailsFragment extends Fragment {
                 }
             }
         });
+        detailEditBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getEbayData(product);
+            }
+        });
+
         return view;
+    }
+
+    //Retrieves product information from ebay
+    private void getEbayData(Product product){
+        ebayAPI.getProductData(product.getName(), new EbayAPI.EbayListener() {
+            @Override
+            public void onProductReceived(String url, Double price) {
+                Log.d("tag", "Ebay Price: " + url);
+                Log.d("tag", "Ebay url: " + price);
+            }
+            @Override
+            public void onFetchError() {Toast.makeText(requireContext(), "Unable to get product information from Ebay", Toast.LENGTH_SHORT).show();}
+        });
     }
 }
