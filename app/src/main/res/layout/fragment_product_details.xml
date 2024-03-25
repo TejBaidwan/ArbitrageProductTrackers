@@ -44,7 +44,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailImage" />
 
-        <TextView
+        <com.borjabravo.readmoretextview.ReadMoreTextView
             android:id="@+id/detailDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,10 +54,15 @@
             android:fontFamily="@font/alegreya_sans"
             android:paddingHorizontal="30dp"
             android:text="TextView"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            app:colorClickableText="#292929"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailName" />
+            app:layout_constraintTop_toBottomOf="@+id/detailName"
+            app:trimCollapsedText="@string/read_more"
+            app:trimExpandedText="@string/read_less"
+            app:trimLength="200"
+            app:trimMode="trimModeLength" />
 
         <TextView
             android:id="@+id/detailPrice"
@@ -105,16 +110,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/ebayPriceTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Ebay Pricing"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailPrice" />
-
         <Button
             android:id="@+id/ebayPrice"
             android:layout_width="180dp"
@@ -132,7 +127,7 @@
             app:icon="@drawable/ic_baseline_launch_24"
             app:layout_constraintBottom_toTopOf="@+id/detailStatBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ebayPriceTitle"
+            app:layout_constraintTop_toBottomOf="@+id/detailPrice"
             app:toggleCheckedStateOnClick="false" />
 
         <ImageView
