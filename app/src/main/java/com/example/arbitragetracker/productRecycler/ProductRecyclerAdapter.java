@@ -22,6 +22,7 @@ import com.example.arbitragetracker.Product;
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.ProductDetailsFragment;
 import com.example.arbitragetracker.R;
+import com.example.arbitragetracker.settings.CurrencyUtil;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -50,7 +51,10 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         Product product = products.get(position);
         holder.name.setText(product.getName());
         holder.description.setText(product.getDescription());
-        holder.price.setText(String.valueOf(product.getPrice()));
+        //Display price with selected currency symbol
+        String selectedCurrency = CurrencyUtil.getSelectedCurrency(context);
+        String priceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(product.getPrice(), selectedCurrency);
+        holder.price.setText(priceWithSymbol);
         Picasso.get().load(product.getImgUrl()).into(holder.image);
 
         //handle single product delete

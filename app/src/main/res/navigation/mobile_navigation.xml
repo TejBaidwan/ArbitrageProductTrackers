@@ -47,4 +47,8 @@
         android:name="com.example.arbitragetracker.statistics.ViewPagerHostFragment"
         android:label="Statistics"
         tools:layout="@layout/fragment_view_pager_host" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.arbitragetracker.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
