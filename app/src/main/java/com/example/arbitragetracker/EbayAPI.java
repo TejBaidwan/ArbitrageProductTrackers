@@ -22,7 +22,7 @@ import java.util.Map;
 public class EbayAPI {
     private Context context;
     //Token will probably expire
-    private final String token = "v^1.1#i^1#I^3#f^0#p^1#r^0#t^H4sIAAAAAAAAAOVYa2wUVRTe7bYlpC0EeaYiLsMzyMzOax8zdDcu7UI30nbpbnk0IWUed7ZTZmc2M3daVvjRFCFEatIgID5+NNaaaEw0gClpDNGaKJEEiGJCAlrEqBD5gfzAZ9SZ3aVsKwGkm9jE/bOZc8899/u+e869ZwbvLp++al/9vp+rnNNK+rvx7hKnk6jAp5eXPTXDVVJd5sALHJz93Uu7S3tc12oMLqWk2WZgpDXVAO6dKUU12KwxiJi6ymqcIRusyqWAwUKBjYcbNrAkhrNpXYOaoCmIO1oXRDifIElEgJIE2s/4RK9lVe/ETGhBhKAo3C+INBegCJrigTVuGCaIqgbkVBhESJykUZxCSTpB+FmvlyUZzM8QrYh7E9ANWVMtFwxHQlm4bHauXoD1/lA5wwA6tIIgoWh4XbwpHK2LNCZqPAWxQnkd4pCDpjH+qVYTgXsTp5jg/ssYWW82bgoCMAzEE8qtMD4oG74D5hHgZ6WmRR/tJziR8xJegQyQRZFynaanOHh/HLZFFlEp68oCFcow8yBFLTX4DiDA/FOjFSJa57b/NpqcIksy0INIZG14azgWQ0KRTk6N6ZqJhnVehjqXRGPNdahAkrjIBHAe5QNUAPAUkV8oFy0v84SVajVVlG3RDHejBtcCCzWYqA1doI3l1KQ26WEJ2ogK/Zg7Ggb8rfam5nbRhO2qva8gZQnhzj4+eAfGZkOoy7wJwViEiQNZiayySqdlEZk4mM3FfPrsNIJIO4Rp1uPp6urCuihM05MeEscJz5aGDXGhHaQ4xPK1az3nLz94AipnqQhWmVr+LMykLSw7rVy1AKhJJEQzJEn78rqPhxWaaP2HoYCzZ3xFFKtC/F6GZEhe8tMkJfK4rxgVEsonqcfGAXgug6Y4fQeAaYUTACpYeWamgC6LLOWVSCogAVT0MRJKM5KE8l7RhxISADgAPC8wgf9ToTxsqseBoANYlFwvWp63N8aeoTKRdS067Io0d2r1GiVkiIyEM5tJQ2HozUJy7eYwoWxsjAQfthruSb5WkS1lEtb6xRDArvXiiVCvGRCIk6IXF7Q0iGmKLGSm1gZTuhjjdJiJA0WxDJMiGU6no8U5q4tG718eE4/Gu3h31H90P92TlWGn7NRiZc83rABcWsbsGwgTtJTHrnWNs9oP29yWRT0p3rLVuU4p1hbJHFtZzLWcWJYuZnQKmA4MzdStbhtrsjuwhLYDqNZ9BnVNUYC+aXJ5bddzKmVCjlfAVCvsIiS4zE2xy5bwEwSFW40bMyleQvYqbZtqR1IxjuLS9Y/YVnvGv+SHHNkf0eMcwXucp0qcTrwGX0YswReXu1pKXZXVhgwBJnMSZshJ1Xp31QG2A2TSnKyXzHbcev1wfW11pOnIql2JzPlXP3VUFnxj6N+GLxj7yjDdRVQUfHLAF94dKSNmzq8iaZwiacLv9ZJMK77k7mgpMa90Tu/Vl2dfOjj0/u8rK76c0Ve9YH/HHhWvGnNyOsscpT1OR9dnHw1d7xtpdL9y9lnfB83HDu7yDEjxgcGOo4efPIT/MnjyuzOjK5YvuvH2cMeRcyufficx5/Je1+C83d83vBACgy9VjTTs/q1lbhBb6Pj8z9uLo/zwqZu+pUNvXBhtYcCsNXsqbw6/qzRza9o6Vt/as2355bdGeqWtJadHyb6zg5cGVpc/zh88sLf1W3T2x2/267tuL9pP/Hix9dpXNUd7twb+Uk+e793fc+hE3/GZo/NnsOsvrBn+qXnWjQpzWdt7P5wInxk6sWiuK3nsjw+fu6iem/biY6evCpV1v3q+qLlZP3/7a+aN5weuR8iNV5PHn/jm3JV5Xy87Wt25gvzk2OItBw5vp68cUXyJoQO5vfwbcDgJSv0RAAA=";
+    private final String token = "v^1.1#i^1#f^0#r^0#I^3#p^1#t^H4sIAAAAAAAAAOVYe2wURRjv9UVaKD6oFBqjZStGgd3bx+09lt7Btb3aCr0evfKMPPZ2Z9uFfWVntuUigVK1JsYUAwFDQKmY0EQSo5IqRkElGoyJkRhEY3xhhJgo8ZEIBoy6u3eUayWA9BKbeP9c5ptvvvn9fvN9M7ND9paWzelv7r9Q4ZlUONhL9hZ6PNRksqy0ZO7UosLqkgIyx8Ez2HtPb3Ff0fd1kFcVg2sH0NA1CGo2qooGOdcYxixT43QeypDTeBVADglcMtq6mKMJkjNMHemCrmA1LY1hLCCxkpRiAiHJzwRpIWRbtcsxO/QwxgdIkeFplhVpyu8TUnY/hBZo0SDiNRTGaJL24SSD02wH5eN8LMewRNDvW4XVLAMmlHXNdiFILOLC5dyxZg7Wa0PlIQQmsoNgkZZoU7It2tIYi3fUeXNiRbI6JBGPLDi61aCLoGYZr1jg2tNA15tLWoIAIMS8kcwMo4Ny0ctgbgK+KzUdDFCsJFL+ACADdCqYFymbdFPl0bVxOBZZxCXXlQMaklH6eoraaqTWAwFlW3E7REtjjfO3xOIVWZKBGcZi9dGV0UQCi8S6eS1h6hYeNVMyMvlOPNHeiAs0TYqhIJnCU0EmCFIMlZ0oEy0r85iZGnRNlB3RYE1cR/XARg3GasPkaGM7tWltZlRCDqJcP/9lDdnAKmdRM6tooS7NWVeg2kLUuM3rr8DIaIRMOWUhMBJhbIcrkV02hiGL2NhONxez6bMRhrEuhAzO6+3p6SF6GEI3O700SVLeFa2Lk0IXUHnM9nVqPeMvX38ALrtUBGCPhDKH0oaNZaOdqzYArROL+EI07fNndR8NKzLW+g9DDmfv6IrIV4UwJMuQZFAMBQCgQ4G8VEgkm6ReBwdI8Wlc5c0NABkKLwBcsPPMUoEpi3YsiWaCEsBFf0jCfSFJwlOs6McpCQASgFRKCAX/T4Vyo6meBIIJUF5yPW953hVPLGLSsaalJuqJtXfrzTojpKm0RIaW01AJ+ZYLnfXLo5SyJB4L32g1XJV8gyLbynTY8+dDAKfW8ydCsw4REMdFLynoBkjoiiykJ9YCM6aY4E2UTgJFsQ3jIhk1jJb87NV5o/cvt4mb452/M+o/Op+uygo6KTuxWDnjoR2AN2TCOYEIQVe9Tq3rvH39cMxrXdTj4i3bN9cJxdommWEri5krJ+HSJWC3QJgA6pZp37aJNucG1qFvAJp9niFTVxRgLhtfXjv1rKoW4lMKmGiFnYcEl/kJdthSAYpiAoEQw46Ll+AepWsn2paUj624+IGbvFZ7R3/kRwrcH9XnOUb2eY4WejxkHTmbqiVnlRYtLS6aUg1lBAiZlwgod2r2t6sJiA0gbfCyWTit4Nf9O5sbqmNtu+Y83JE+sed4wZScN4bB1eSMkVeGsiJqcs6TA3nnlZ4S6paqCtpHMjRL+Xwsw64ia6/0FlPTiytP3vHU0Xsjzy169IkFr529L7LvrfLGs2TFiJPHU1JQ3OcpYJ/c8pNv5fppR4KH67+qvG32i4ermLr9J/EPP110vvSXNbs/UM55BowmbEXjweb+HcE1LwU8C+Obj9Gnhtfu9c648PwQP/z6bwcWnPqzkqiosvYcoIZ+H3hs9fvPsvrXb1R9Mjz7CFa7a96p0jN/MT/u+Pnl2Dufl797962RYOWh+dt6/PFXhlRDqZ+7k3j6ru2HDoWf6Ws9v/SPwZg6MFN9EF6y3tz2yJbd0oVzW9u+27zpcbb9o237P95tbt+HfzOwxrt3XdHpt8uP9s4o7b60buHWkveEz8qru8/MYy5KM4f7uyfdP98z7/jtQ1+W/TC19YS0rp56YfrFWuzb2jLi1S8OwsWbds16KHF6KLOWfwMx2I9L/REAAA==";
 
     public EbayAPI(Context context) {
         this.context = context;
@@ -52,8 +52,9 @@ public class EbayAPI {
                             Log.d("tag", "Item Web URL: " + itemWebUrl);
                             Log.d("tag", "Item price: " + price);
 
+                            EbayProduct ebayProduct = new EbayProduct(price, itemWebUrl);
                             //create product to send to the listener
-                            listener.onProductReceived(itemWebUrl, price);
+                            listener.onProductReceived(ebayProduct);
                         } catch (JSONException e) {
                             e.printStackTrace();
                             listener.onFetchError();
@@ -79,8 +80,34 @@ public class EbayAPI {
 
     //methods are overridden and given outcomes in the fragment
     public interface EbayListener {
-        void onProductReceived(String url, Double price);
+        void onProductReceived(EbayProduct ebayProduct);
         void onFetchError();
+    }
+}
+
+class EbayProduct{
+    private Double price;
+    private String url;
+
+    public EbayProduct(Double price, String url) {
+        this.price = price;
+        this.url = url;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
 
