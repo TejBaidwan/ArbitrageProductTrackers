@@ -2,6 +2,7 @@ package com.example.arbitragetracker.settings;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.EditTextPreference;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.arbitragetracker.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
+    boolean animDisabled;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -28,16 +30,13 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 preferences.edit().putBoolean("anim_disable", disableAnimations).apply();
 
-
-                // Access the RecyclerView and disable animation if needed
-                RecyclerView recyclerView = getActivity().findViewById(R.id.productRecycler);
-                if (recyclerView != null) {
-                    if (disableAnimations) {
-                        recyclerView.setLayoutAnimation(null);
-                    }
-                }
+                animDisabled = disableAnimations;
                 return true;
             });
         }
+    }
+
+    public boolean isAnimDisabled(){
+        return animDisabled;
     }
 }

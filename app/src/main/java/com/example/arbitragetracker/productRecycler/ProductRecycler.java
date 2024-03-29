@@ -1,11 +1,14 @@
 package com.example.arbitragetracker.productRecycler;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import android.view.ViewGroup;
 import com.example.arbitragetracker.Product;
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
+import com.example.arbitragetracker.settings.SettingsFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -69,6 +73,14 @@ public class ProductRecycler extends Fragment {
         View view = inflater.inflate(R.layout.fragment_product_recycler, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.productRecycler);
         db = ProductDatabase.getInstance(getContext());
+
+        //Disables animation if set in preferences
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean animDisabled = preferences.getBoolean("anim_disable", false);
+            if (animDisabled) {
+                Log.d("tag", "RECYCLER ANIM OFF");
+                recyclerView.setLayoutAnimation(null);
+            }
 
         ProductRecyclerAdapter adapter = new ProductRecyclerAdapter(db.getAllProducts(), getContext());
         recyclerView.setAdapter(adapter);
