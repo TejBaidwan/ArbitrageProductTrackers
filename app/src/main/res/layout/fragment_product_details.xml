@@ -56,13 +56,14 @@
             android:text="TextView"
             android:textSize="16sp"
             app:colorClickableText="#292929"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailName"
             app:trimCollapsedText="@string/read_more"
             app:trimExpandedText="@string/read_less"
             app:trimLength="200"
-            app:trimMode="trimModeLength" />
+            app:trimMode="trimModeLength"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailName"
+            />
 
         <TextView
             android:id="@+id/detailPrice"
