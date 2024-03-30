@@ -1,11 +1,13 @@
 package com.example.arbitragetracker;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +41,10 @@ public class ProductDetailsFragment extends Fragment {
     public static final int ADD = 2;
     public static final String ACTION_TYPE = "action_type";
     Product product;
+    EbayAPI ebayAPI;
+
+    Button ebayPriceBtn;
+    String ebayUrl;
 
     public ProductDetailsFragment() {
         // Required empty public constructor
@@ -84,7 +90,11 @@ public class ProductDetailsFragment extends Fragment {
         ImageView detailStatBtn = view.findViewById(R.id.detailStatBtn);
         ImageView detailEditBtn = view.findViewById(R.id.detailEditBtn);
         Button addToInventoryBtn = view.findViewById(R.id.addToInvBtn);
+        ImageView ebayImageView = view.findViewById(R.id.ebayImgView);
+        ebayPriceBtn = view.findViewById(R.id.ebayPrice);
 
+
+        ebayAPI = new EbayAPI(getContext());
         product = getArguments().getParcelable(PRODUCT);
 
         //only displays the addtoinventory button if it has just been scanned
@@ -100,6 +110,7 @@ public class ProductDetailsFragment extends Fragment {
         String selectedCurrency = CurrencyUtil.getSelectedCurrency(getContext());
         String priceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(product.getPrice(), selectedCurrency);
         detailPrice.setText(priceWithSymbol);
+        Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/4/48/EBay_logo.png").into(ebayImageView);
 
         //Add product to the database then navigate to the inventory
         addToInventoryBtn.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +126,47 @@ public class ProductDetailsFragment extends Fragment {
                 }
             }
         });
+
+        getEbayData(product);
+
+
+        //if the ebay product exists, parse products url to a web intent
+        ebayPriceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ebayUrl != null){
+                    String url = ebayUrl;
+                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(i);
+                }
+            }
+        });
+
         return view;
+    }
+
+    //Retrieves product information from ebay
+    private void getEbayData(Product product){
+        ebayAPI.getProductData(product.getName(), new EbayAPI.EbayListener() {
+            @Override
+            public void onProductReceived(EbayProduct ebayProduct) {
+                Log.d("tag", "Ebay Price: " + ebayProduct.getPrice());
+                Log.d("tag", "Ebay url: " + ebayProduct.getUrl());
+                handleEbayData(ebayProduct);
+            }
+            @Override
+            public void onFetchError() {Toast.makeText(requireContext(), "Unable to get product information from Ebay", Toast.LENGTH_SHORT).show();}
+        });
+    }
+
+    //Set price and url for ui elements
+    private void handleEbayData(EbayProduct ebayProduct){
+        if (ebayProduct != null){
+            String selectedCurrency = CurrencyUtil.getSelectedCurrency(getContext());
+            String ebayPriceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(ebayProduct.getPrice(), selectedCurrency);
+            ebayPriceBtn.setText(ebayPriceWithSymbol);
+            ebayUrl = ebayProduct.getUrl();
+        }else{ebayPriceBtn.setText("No prices from ebay.com available");}
+
     }
 }
