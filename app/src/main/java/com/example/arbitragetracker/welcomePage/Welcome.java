@@ -1,29 +1,24 @@
-package com.example.arbitragetracker.productRecycler;
+package com.example.arbitragetracker.welcomePage;
 
-import android.content.SharedPreferences;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.preference.PreferenceManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.example.arbitragetracker.Product;
-import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
-import com.example.arbitragetracker.settings.SettingsFragment;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ProductRecycler#newInstance} factory method to
+ * Use the {@link Welcome#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProductRecycler extends Fragment {
+public class Welcome extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,9 +29,7 @@ public class ProductRecycler extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    ProductDatabase db;
-
-    public ProductRecycler() {
+    public Welcome() {
         // Required empty public constructor
     }
 
@@ -46,11 +39,11 @@ public class ProductRecycler extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProductRecycler.
+     * @return A new instance of fragment Welcome.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProductRecycler newInstance(String param1, String param2) {
-        ProductRecycler fragment = new ProductRecycler();
+    public static Welcome newInstance(String param1, String param2) {
+        Welcome fragment = new Welcome();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,21 +63,19 @@ public class ProductRecycler extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_product_recycler, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.productRecycler);
-        db = ProductDatabase.getInstance(getContext());
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_welcome, container, false);
 
-        //Disables animation if set in preferences
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean animDisabled = preferences.getBoolean("anim_disable", false);
-            if (animDisabled) {
-                Log.d("tag", "RECYCLER ANIM OFF");
-                recyclerView.setLayoutAnimation(null);
+        //Find Button and set intent when clicked
+        Button webLink = view.findViewById(R.id.webLinkOne);
+        webLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.junglescout.com/blog/amazon-retail-arbitrage/"));
+                startActivity(i);
             }
+        });
 
-        ProductRecyclerAdapter adapter = new ProductRecyclerAdapter(db.getAllProducts(), getContext());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
 }

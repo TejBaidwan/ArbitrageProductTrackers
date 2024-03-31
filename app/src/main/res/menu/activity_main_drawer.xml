@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
         <item
+            android:id="@+id/nav_welcome"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/welcomeDrawer" />
+        <item
             android:id="@+id/nav_scanner"
             android:icon="@drawable/ic_baseline_qr_code_scanner_24"
             android:title="Scanner" />
@@ -24,5 +28,10 @@
             android:id="@+id/nav_recycler"
             android:icon="@drawable/ic_baseline_list_24"
             android:title="My Products" />
+        <item
+            android:id="@+id/nav_stats"
+            android:icon="@drawable/ic_baseline_query_stats_24"
+            android:title="Statistics"
+            />
     </group>
 </menu>

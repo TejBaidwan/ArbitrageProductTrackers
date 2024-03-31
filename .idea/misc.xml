@@ -3,13 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.333" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/app_bar_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/content_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_product_details.xml" value="0.33" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_product_recycler.xml" value="0.358695652173913" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_scanner.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_view_pager_host.xml" value="0.3625" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/product_list_item.xml" value="0.358695652173913" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/menu/activity_main_drawer.xml" value="0.3625" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/menu/main.xml" value="0.3625" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/xml/root_preferences.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/fragment_product_recycler.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/fragment_scanner.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/fragment_statistics.xml" value="0.14427083333333332" />
+        <entry key="app/src/main/res/layout/fragment_view_pager_host.xml" value="0.14427083333333332" />
+        <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/product_list_item.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.15520833333333334" />
       </map>
     </option>
   </component>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_welcome">
 
     <fragment
         android:id="@+id/nav_home"
@@ -32,4 +32,23 @@
         android:name="com.example.arbitragetracker.productRecycler.ProductRecycler"
         android:label="My Products"
         tools:layout="@layout/fragment_product_recycler" />
+    <fragment
+        android:id="@+id/nav_welcome"
+        android:name="com.example.arbitragetracker.welcomePage.Welcome"
+        android:label="Welcome!"
+        tools:layout="@layout/fragment_welcome" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.arbitragetracker.ProductDetailsFragment"
+        android:label="ProductDetails"
+        tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/nav_stats"
+        android:name="com.example.arbitragetracker.statistics.ViewPagerHostFragment"
+        android:label="Statistics"
+        tools:layout="@layout/fragment_view_pager_host" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.arbitragetracker.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
