@@ -106,12 +106,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:backgroundTint="#E64C4C"
             android:text="Add to inventory"
             app:icon="@drawable/ic_baseline_playlist_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ebayPrice"
             android:layout_width="180dp"
             android:layout_height="65dp"
@@ -119,12 +120,13 @@
             android:layout_marginEnd="70dp"
             android:layout_marginBottom="24dp"
             android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="#9FA0AA"
             android:gravity="center"
             android:text="Price Unavailable"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:icon="@drawable/ic_baseline_launch_24"
             app:layout_constraintBottom_toTopOf="@+id/detailStatBtn"
             app:layout_constraintEnd_toEndOf="parent"

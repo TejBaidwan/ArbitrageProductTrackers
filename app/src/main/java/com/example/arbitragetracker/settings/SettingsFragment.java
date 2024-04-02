@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.arbitragetracker.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
-    boolean animDisabled;
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey);
@@ -30,13 +28,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 preferences.edit().putBoolean("anim_disable", disableAnimations).apply();
 
-                animDisabled = disableAnimations;
                 return true;
             });
         }
     }
 
-    public boolean isAnimDisabled(){
-        return animDisabled;
-    }
+
 }
