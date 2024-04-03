@@ -9,6 +9,7 @@ public class Product implements Parcelable {
     private String description;
     private Double price;
     private String imgUrl;
+    private int sold;
 
     public Product(String name, String description, Double price, String imgUrl) {
         this.name = name;
@@ -16,12 +17,13 @@ public class Product implements Parcelable {
         this.price = price;
         this.imgUrl = imgUrl;
     }
-    public Product(int id, String name, String description, Double price, String imgUrl) {
+    public Product(int id, String name, String description, Double price, String imgUrl, int soldStatus) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.imgUrl = imgUrl;
+        this.sold = soldStatus;
     }
 
     public Product(){
@@ -69,7 +71,13 @@ public class Product implements Parcelable {
         this.imgUrl = imgUrl;
     }
 
+    public int isSold() {
+        return sold;
+    }
 
+    public void setSold(int sold) {
+        this.sold = sold;
+    }
 
     //Parcelable methods//
 
@@ -84,6 +92,7 @@ public class Product implements Parcelable {
         parcel.writeString(this.description);
         parcel.writeDouble(this.price);
         parcel.writeString(this.imgUrl);
+        parcel.writeInt(this.sold);
     }
 
     protected Product(Parcel in) {
@@ -96,6 +105,7 @@ public class Product implements Parcelable {
             price = in.readDouble();
         }
         imgUrl = in.readString();
+        sold = in.readInt();
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {

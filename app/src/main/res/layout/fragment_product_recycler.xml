@@ -5,11 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".productRecycler.ProductRecycler">
 
+    <ToggleButton
+        android:id="@+id/filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        android:textOff="ACTIVE LISTINGS"
+        android:textOn="SOLD LISTINGS" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layoutAnimation="@anim/layout_anim"
-        />
+        android:layout_marginTop="50sp"
+        android:layoutAnimation="@anim/layout_anim" />
 
 </FrameLayout>

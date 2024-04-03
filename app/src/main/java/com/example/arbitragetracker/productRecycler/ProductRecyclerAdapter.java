@@ -5,9 +5,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,15 +30,18 @@ import com.example.arbitragetracker.settings.CurrencyUtil;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter.CustomViewHolder> {
     private ArrayList<Product> products;
+    private ArrayList<Product> originalProducts;
     private Context context;
     ProductDatabase db;
     NavController navController;
 
     public ProductRecyclerAdapter( ArrayList<Product> products, Context context) {
         this.products = products;
+        this.originalProducts = new ArrayList<>(products);
         this.context = context;
     }
 
@@ -56,6 +63,18 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         String priceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(product.getPrice(), selectedCurrency);
         holder.price.setText(priceWithSymbol);
         Picasso.get().load(product.getImgUrl()).into(holder.image);
+
+        holder.checkBox.setChecked(product.isSold() == 1); // Set checked state based on sold status
+
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Update sold status of the product in the database
+                updateSoldStatus(product.getId(), isChecked ? 1 : 0); // Convert boolean isChecked to integer
+                // Update the product's sold status locally
+                product.setSold(isChecked ? 1 : 0); // Convert boolean isChecked to integer
+            }
+        });
 
         //handle single product delete
         holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +116,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         protected TextView price;
         protected ImageView image;
         protected ImageView delete;
+        protected CheckBox checkBox;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -105,6 +125,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
             this.price = itemView.findViewById(R.id.recyclerPrice);
             this.image = itemView.findViewById(R.id.recyclerImage);
             this.delete = itemView.findViewById(R.id.deleteBtn);
+            this.checkBox = itemView.findViewById(R.id.listingStatus);
             itemView.setOnClickListener(this);
         }
 
@@ -120,4 +141,65 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
                     .navigate(R.id.productDetailsFragment, extra);
         }
     }
+
+    private void updateSoldStatus(int productId, int sold) {
+        // Get an instance of your database
+        db = ProductDatabase.getInstance(context);
+        Log.d("SoldStatus", "Before Update: " + getProductStatus(productId));
+
+//        // Get the product from the database
+//        Product product = db.getProduct(productId);
+//
+//        // Update the sold status of the product
+//        if (product != null) {
+//            product.setSold(sold);
+//            // Update the product in the database
+//            db.updateProduct(product);
+//        }
+
+        db.updateProductStatus(productId, sold);
+
+        Log.d("SoldStatus", "After Update: " + getProductStatus(productId));
+
+        // Close the database connection
+        db.close();
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    private int getProductStatus(int productId) {
+        db = ProductDatabase.getInstance(context);
+        Product product = db.getProduct(productId);
+        db.close();
+        return product != null ? product.isSold() : -1; // Return -1 if product not found
+    }
+
+
+    public void filterItems(boolean soldItemsOnly) {
+        // Clear the current list only if you want to refresh it every time
+        Log.d("FilterItems", "Filtering items. SoldItemsOnly: " + soldItemsOnly);
+        products.clear();
+        List<Product> filteredProducts = new ArrayList<>();
+
+        for (Product product : originalProducts) {
+            // Check if the product's sold status matches the filtering condition
+            boolean shouldAdd = soldItemsOnly ? product.isSold() == 1 : product.isSold() == 0;
+
+            // Add the product to the filtered list if it matches the condition
+            if (shouldAdd) {
+                filteredProducts.add(product);
+                Log.d("FilterItems", "Added product: " + product.getName() + ", Sold status: " + product.isSold());
+            }
+        }
+
+        products.addAll(filteredProducts);
+
+        notifyDataSetChanged(); // Notify adapter of dataset change
+    }
+
 }
