@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
     tools:context=".scanner.ScannerFragment">
 
     <Button
@@ -11,11 +12,13 @@
         android:layout_width="203dp"
         android:layout_height="215dp"
         android:layout_marginTop="200dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="@color/theme_red"
         android:text="Scan"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="34sp"
         app:cornerRadius="500dp"
         app:icon="@drawable/ic_baseline_qr_code_scanner_24"
+        app:iconTint="?attr/colorOnSecondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="Manually enter barcode"
-        android:textColor="#000000"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/manualEnterEditText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +44,7 @@
         android:ems="10"
         android:inputType="number"
         android:maxLength="12"
+        android:textColor="@color/theme_textblack"
         app:layout_constraintBottom_toTopOf="@+id/manuallyEnterBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -50,7 +54,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/theme_green"
         android:text="Add"
+        android:textColor="?attr/colorOnSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="172dp"
-        android:background="#BDD9E6">
+        android:background="@color/theme_green">
 
         <TextView
             android:id="@+id/recyclerName"
@@ -18,7 +18,7 @@
             android:layout_marginTop="16dp"
             android:maxLength="20"
             android:text="TextView"
-            android:textColor="@color/black"
+            android:textColor="@color/theme_textblack"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
@@ -32,7 +32,7 @@
             android:maxLength="20"
             android:text="TextView"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
+            android:textColor="@color/theme_textblack"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
@@ -45,7 +45,7 @@
             android:layout_marginTop="16dp"
             android:maxLength="20"
             android:text="TextView"
-            android:textColor="@color/black"
+            android:textColor="@color/theme_textblack"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"

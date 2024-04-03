@@ -9,7 +9,7 @@
         android:id="@+id/productRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layoutAnimation="@anim/layout_anim"
-        />
+        android:background="?attr/colorPrimarySurface"
+        android:layoutAnimation="@anim/layout_anim" />
 
 </FrameLayout>
