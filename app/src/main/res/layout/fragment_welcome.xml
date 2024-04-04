@@ -60,6 +60,28 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <EditText
+                android:id="@+id/telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/phoneHint"
+                android:inputType="textPersonName|phone"
+                android:minHeight="48dp"
+                android:textColorHint="@color/theme_red" />
+
+            <Button
+                android:id="@+id/textIntentButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:backgroundTint="@color/theme_red"
+                android:text="@string/textIntent"
+                android:textColor="?attr/colorOnSecondary"
+                android:textColorLink="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 

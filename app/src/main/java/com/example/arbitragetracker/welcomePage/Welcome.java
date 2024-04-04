@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.arbitragetracker.R;
 
@@ -66,13 +68,35 @@ public class Welcome extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_welcome, container, false);
 
-        //Find Button and set intent when clicked
+        //Find Buttons and set intents when clicked
         Button webLink = view.findViewById(R.id.webLinkOne);
         webLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.junglescout.com/blog/amazon-retail-arbitrage/"));
                 startActivity(i);
+            }
+        });
+
+        //Getting the phone number entered, verifying it, and then sending an sms with the book link to that phone number
+        //This uses an sms ACTION_SENDTO intent
+        Button textLink = view.findViewById(R.id.textIntentButton);
+        EditText phoneNumber = view.findViewById(R.id.telephone);
+
+        textLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String bookLink = "https://books.google.ca/books/about/Retail_Arbitrage.html?id=8DXRygAACAAJ&redir_esc=y";
+                String textNumber = phoneNumber.getText().toString();
+
+                if(textNumber.length() == 10 && textNumber!= null) {
+                    Intent i = new Intent(Intent.ACTION_SENDTO,
+                            Uri.parse("smsto:" + textNumber));
+                    i.putExtra("sms_body", "Check out the book: " + bookLink);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getContext(), "Invalid phone number. No area code or dashes allowed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
