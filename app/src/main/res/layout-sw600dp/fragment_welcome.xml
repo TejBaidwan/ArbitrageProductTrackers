@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimary">
+        android:background="#D5D0D0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,19 +21,19 @@
                 android:id="@+id/welcomeTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/theme_green"
-                android:fontFamily="sans-serif-medium"
+                android:background="#4CAF50"
+                android:fontFamily="serif"
                 android:text="@string/welcomeTitle"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="@color/theme_textblack"
-                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:textSize="96sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/welcomeImage"
                 android:layout_width="match_parent"
-                android:layout_height="223dp"
+                android:layout_height="528dp"
                 android:layout_margin="10sp"
                 android:background="#FFEB3B"
                 android:src="@drawable/appiconimage" />
@@ -43,21 +43,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
-                android:fontFamily="sans-serif-medium"
                 android:text="@string/welcomeContent"
-                android:textColor="?attr/colorOnPrimary"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="42sp" />
 
             <Button
                 android:id="@+id/webLinkOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:backgroundTint="@color/theme_red"
+                android:backgroundTint="@color/black"
                 android:text="@string/webLinkIntent"
-                android:textColor="?attr/colorOnSecondary"
+                android:textColor="@color/white"
+                android:textColorHighlight="#FFEB3B"
                 android:textColorLink="@color/white"
-                android:textSize="16sp"
+                android:textSize="34sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
