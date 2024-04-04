@@ -12,11 +12,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 import com.example.arbitragetracker.Product;
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
 import com.example.arbitragetracker.settings.SettingsFragment;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,6 +76,7 @@ public class ProductRecycler extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_recycler, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.productRecycler);
+        ToggleButton toggleButton = view.findViewById(R.id.filter);
         db = ProductDatabase.getInstance(getContext());
 
         //Disables animation if set in preferences
@@ -85,6 +90,15 @@ public class ProductRecycler extends Fragment {
         ProductRecyclerAdapter adapter = new ProductRecyclerAdapter(db.getAllProducts(), getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Filter items based on the toggle switch state
+                adapter.filterItems(isChecked);
+            }
+        });
+
         return view;
     }
 }
