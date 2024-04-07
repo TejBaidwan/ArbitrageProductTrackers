@@ -30,7 +30,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:backgroundTint="@color/theme_red"
+        app:backgroundTint="?attr/colorAccent"
         app:srcCompat="@drawable/ic_baseline_playlist_add_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

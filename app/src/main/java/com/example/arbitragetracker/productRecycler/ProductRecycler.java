@@ -1,8 +1,10 @@
 package com.example.arbitragetracker.productRecycler;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,8 +14,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.arbitragetracker.Product;
@@ -21,6 +25,8 @@ import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
 import com.example.arbitragetracker.settings.SettingsFragment;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,8 +82,10 @@ public class ProductRecycler extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_recycler, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.productRecycler);
-        ToggleButton toggleButton = view.findViewById(R.id.filter);
+        SwitchCompat toggleSwitch = view.findViewById(R.id.filter2);
         db = ProductDatabase.getInstance(getContext());
+
+
 
         //Disables animation if set in preferences
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -91,14 +99,16 @@ public class ProductRecycler extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        toggleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Filter items based on the toggle switch state
-                adapter.filterItems(isChecked);
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                toggleSwitch.setText(b ? "SOLD LISTINGS" : "ACTIVE LISTINGS");
+                adapter.filterItems(b);
             }
         });
 
         return view;
     }
+
 }

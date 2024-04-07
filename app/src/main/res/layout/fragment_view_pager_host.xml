@@ -7,19 +7,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".statistics.ViewPagerHostFragment">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:textStyle="bold"
-        app:tabTextColor="#4CAF50"
-        app:tabIconTint="@color/white" />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpHost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#D5D0D0"
         />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/gallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/theme_green"
+        app:tabIndicator="@android:color/transparent"
+        app:tabSelectedTextAppearance="@style/SelectedTabTextAppearance">
+    </com.google.android.material.tabs.TabLayout>
 </LinearLayout>
