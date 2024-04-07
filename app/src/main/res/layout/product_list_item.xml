@@ -10,16 +10,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="172dp"
-        android:background="#24262E">
+        android:background="?attr/colorOnSecondary">
 
         <TextView
             android:id="@+id/recyclerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
             android:maxLength="20"
             android:text="TextView"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorPrimaryVariant"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
@@ -30,10 +31,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
             android:maxLength="20"
             android:text="TextView"
             android:textAlignment="viewStart"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorPrimaryVariant"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
@@ -44,9 +46,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
             android:maxLength="20"
             android:text="TextView"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorPrimaryVariant"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
@@ -80,8 +83,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
+            android:fontFamily="@font/poppins"
             android:text="Mark As Sold"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorPrimaryVariant"
             app:layout_constraintStart_toStartOf="@+id/recyclerImage"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

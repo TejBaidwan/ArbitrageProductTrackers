@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -82,10 +83,13 @@ public class ProductRecycler extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_recycler, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.productRecycler);
-        SwitchCompat toggleSwitch = view.findViewById(R.id.filter2);
+        SwitchCompat toggleSwitch = view.findViewById(R.id.filter);
+        TextView recyclerIsEmpty = view.findViewById(R.id.inventoryEmptyTextView);
         db = ProductDatabase.getInstance(getContext());
 
-
+       if (db.getAllProducts().isEmpty() ){
+            recyclerIsEmpty.setVisibility(View.VISIBLE);
+        }
 
         //Disables animation if set in preferences
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());

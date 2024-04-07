@@ -62,7 +62,10 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         String selectedCurrency = CurrencyUtil.getSelectedCurrency(context);
         String priceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(product.getPrice(), selectedCurrency);
         holder.price.setText(priceWithSymbol);
-        Picasso.get().load(product.getImgUrl()).into(holder.image);
+        //If product doesn't have an image provide a default
+        if (product.getImgUrl() != null){
+            Picasso.get().load(product.getImgUrl()).into(holder.image);
+        } else{Picasso.get().load(R.drawable.placeholder_image).into(holder.image);}
 
         holder.checkBox.setChecked(product.isSold() == 1); // Set checked state based on sold status
 

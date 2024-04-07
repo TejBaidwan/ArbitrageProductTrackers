@@ -3,12 +3,12 @@
     <style name="Theme.ArbitrageTracker" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/theme_offwhite</item>
-        <item name="colorPrimaryVariant">#786546</item>
+        <item name="colorPrimaryVariant">#FFFFFF</item>
         <item name="colorOnPrimary">@color/theme_textblack</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/theme_red</item>
         <item name="colorSecondaryVariant">@color/theme_green</item>
-        <item name="colorOnSecondary">@color/theme_offwhite</item>
+        <item name="colorOnSecondary">@color/theme_blue</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
