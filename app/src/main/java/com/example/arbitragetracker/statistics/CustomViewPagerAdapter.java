@@ -1,5 +1,7 @@
 package com.example.arbitragetracker.statistics;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -7,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
+import com.example.arbitragetracker.settings.CurrencyUtil;
 
 /**
  * This class represents the ViewPager adapter which populates the ViewPager found in the Stats Fragment

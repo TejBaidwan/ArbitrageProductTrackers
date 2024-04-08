@@ -3,4 +3,10 @@
     <style name="SelectedTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textColor">@color/theme_red</item>
     </style>
+
+<!-- This fixes dialog so button color is visible-->
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+    </style>
+
+
 </resources>

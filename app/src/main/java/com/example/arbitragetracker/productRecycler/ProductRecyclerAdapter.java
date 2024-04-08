@@ -84,7 +84,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
             @Override
             public void onClick(View view) {
                 //delete selected product from database
-                new AlertDialog.Builder(view.getContext())
+                new AlertDialog.Builder(view.getContext(), R.style.CustomAlertDialog)
                         .setTitle("Delete Product")
                         .setMessage("ARE YOU SURE YOU WANT TO DELETE '" + product.getName() +"' FROM YOUR INVENTORY?")
                         .setIcon(R.drawable.ic_baseline_warning_24)

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
+import com.example.arbitragetracker.settings.CurrencyUtil;
 
 /**
  * This class represents the StatisticsFragment which contains the VP of stats
@@ -87,6 +88,7 @@ public class StatisticsFragment extends Fragment {
         TextView statsTitle = view.findViewById(R.id.statTitle);
         ImageView statsImage = view.findViewById(R.id.statsImage);
         TextView statsValue = view.findViewById(R.id.statsValue);
+
 
         //Setting the values of the nodes to the bundled information
         if (mParam1 != 0 && mParam2 != 0 && mParam3 != 0) {
