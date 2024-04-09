@@ -28,4 +28,9 @@
         android:id="@+id/nav_settings"
         android:name="com.example.arbitragetracker.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/nav_credits"
+        android:name="com.example.arbitragetracker.credits.CreditsFragment"
+        android:label="Credits"
+        tools:layout="@layout/fragment_credits" />
 </navigation>
