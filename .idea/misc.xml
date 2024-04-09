@@ -10,6 +10,7 @@
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_insert_drive_file_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_launch_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_list_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_playlist_add_24.xml" value="0.1" />
@@ -27,9 +28,11 @@
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout-sw600dp/fragment_statistics.xml" value="0.271875" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout-sw600dp/fragment_welcome.xml" value="0.271875" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout-sw600dp/product_list_item.xml" value="0.271875" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout-v26/fragment_product_recycler.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/app_bar_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/content_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/custom_dialog.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_gallery.xml" value="0.3625" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_product_details.xml" value="0.33" />

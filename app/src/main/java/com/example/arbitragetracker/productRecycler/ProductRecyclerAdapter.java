@@ -62,7 +62,10 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         String selectedCurrency = CurrencyUtil.getSelectedCurrency(context);
         String priceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(product.getPrice(), selectedCurrency);
         holder.price.setText(priceWithSymbol);
-        Picasso.get().load(product.getImgUrl()).into(holder.image);
+        //If product doesn't have an image provide a default
+        if (product.getImgUrl() != null){
+            Picasso.get().load(product.getImgUrl()).into(holder.image);
+        } else{Picasso.get().load(R.drawable.placeholder_image).into(holder.image);}
 
         holder.checkBox.setChecked(product.isSold() == 1); // Set checked state based on sold status
 
@@ -81,7 +84,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
             @Override
             public void onClick(View view) {
                 //delete selected product from database
-                new AlertDialog.Builder(view.getContext())
+                new AlertDialog.Builder(view.getContext(), R.style.CustomAlertDialog)
                         .setTitle("Delete Product")
                         .setMessage("ARE YOU SURE YOU WANT TO DELETE '" + product.getName() +"' FROM YOUR INVENTORY?")
                         .setIcon(R.drawable.ic_baseline_warning_24)

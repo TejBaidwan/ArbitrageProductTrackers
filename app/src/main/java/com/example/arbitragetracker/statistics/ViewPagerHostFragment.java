@@ -101,6 +101,6 @@ public class ViewPagerHostFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TabLayout tabLayout = view.findViewById(R.id.gallery);
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) ->
-                tab.setText("#" + (position + 1))).attach();
+                tab.setText(("\u25CF"))).attach();
     }
 }

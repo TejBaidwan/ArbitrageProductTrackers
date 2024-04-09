@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
-        //navigate the user to the scanner screen to add new products
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.nav_scanner);
-            }
-        });
+//        //navigate the user to the scanner screen to add new products
+//        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                navController.navigate(R.id.nav_scanner);
+//            }
+//        });
 
         //Ask user to delete all products from the database
         binding.appBarMain.fab.setOnLongClickListener(new View.OnLongClickListener() {
@@ -74,8 +74,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_welcome, R.id.nav_scanner, R.id.nav_recycler,
-                R.id.nav_stats)
+                R.id.nav_welcome, R.id.nav_recycler, R.id.nav_stats)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -86,11 +85,12 @@ public class MainActivity extends AppCompatActivity {
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                if (destination.getId() == R.id.nav_recycler){
-                    binding.appBarMain.fab.show();
-                }else{
-                    binding.appBarMain.fab.hide();
-                }
+//                if (destination.getId() == R.id.nav_recycler){
+//                    binding.appBarMain.fab.show();
+//                }else{
+//                    binding.appBarMain.fab.hide();
+//                }
+                binding.appBarMain.fab.hide();
             }
         });
     }

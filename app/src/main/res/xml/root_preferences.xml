@@ -1,22 +1,31 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/colorPrimary"
+    android:visibility="visible"
+    tools:visibility="visible">
 
     <ListPreference
-    app:key="currency_preference"
-    app:title="Select Currency"
-    app:summary="Choose your preferred currency"
-    app:entries="@array/currency_entries"
-    app:entryValues="@array/currency_values"
-    app:defaultValue="USD"
-    app:dialogTitle="Select Currency"
-    app:icon="@drawable/ic_baseline_currency_exchange_24"
-    />
+        app:defaultValue="USD"
+        app:dialogTitle="Select Currency"
+        app:entries="@array/currency_entries"
+        app:entryValues="@array/currency_values"
+        app:icon="@drawable/ic_baseline_currency_exchange_24"
+        app:key="currency_preference"
+        app:summary="Choose your preferred currency"
+        app:title="Select Currency" />
 
     <CheckBoxPreference
-        app:key="anim_disable"
-        app:title="Disable Animations"
-        app:summary="Disable animations to help performance"
+        android:icon="@drawable/ic_baseline_animation_24"
         app:defaultValue="false"
-        android:icon="@drawable/ic_baseline_animation_24"/>
+        app:key="anim_disable"
+        app:summary="Disable animations to help performance"
+        app:title="Disable Animations" />
+
+    <PreferenceScreen
+        android:icon="@drawable/ic_baseline_insert_drive_file_24"
+        android:key="export_inventory_preference"
+        android:summary="Converts product inventory to a text file"
+        android:title="Export Inventory To File" />
 
 </PreferenceScreen>

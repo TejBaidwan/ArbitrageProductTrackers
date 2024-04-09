@@ -87,8 +87,6 @@ public class ProductDetailsFragment extends Fragment {
         TextView detailName = view.findViewById(R.id.detailName);
         TextView detailDescription = view.findViewById(R.id.detailDescription);
         TextView detailPrice = view.findViewById(R.id.detailPrice);
-        ImageView detailStatBtn = view.findViewById(R.id.detailStatBtn);
-        ImageView detailEditBtn = view.findViewById(R.id.detailEditBtn);
         Button addToInventoryBtn = view.findViewById(R.id.addToInvBtn);
         ImageView ebayImageView = view.findViewById(R.id.ebayImgView);
         ebayPriceBtn = view.findViewById(R.id.ebayPrice);
@@ -103,7 +101,11 @@ public class ProductDetailsFragment extends Fragment {
             addToInventoryBtn.setVisibility(View.GONE);
         }
 
-        Picasso.get().load(product.getImgUrl()).into(detailImage);
+        //If product doesn't have an image provide a default
+        if (product.getImgUrl() != null){
+            Picasso.get().load(product.getImgUrl()).into(detailImage);
+        } else{Picasso.get().load(R.drawable.placeholder_image).into(detailImage);}
+
         detailName.setText(product.getName());
         detailDescription.setText(product.getDescription());
         //Display converted price with selected currency symbol
