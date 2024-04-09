@@ -85,7 +85,7 @@
                 android:layout_margin="15sp"
                 android:backgroundTint="@color/theme_green"
                 android:fontFamily="@font/poppins"
-                android:text="BorjaBravo's READMORE Textview Extension"
+                android:text="BorjaBravo's READMORE Textview Extension on GitHub"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

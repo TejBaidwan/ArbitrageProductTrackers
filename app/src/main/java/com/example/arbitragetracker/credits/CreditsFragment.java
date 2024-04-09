@@ -1,5 +1,7 @@
 package com.example.arbitragetracker.credits;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.arbitragetracker.R;
 
@@ -61,6 +64,51 @@ public class CreditsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credits, container, false);
+        View view = inflater.inflate(R.layout.fragment_credits, container, false);
+
+        //Buttons which link to the documentation source for an API
+        Button picassoButton = view.findViewById(R.id.picassoButton);
+        Button codeScannerButton = view.findViewById(R.id.googleButton);
+        Button ebayButton = view.findViewById(R.id.ebayButton);
+        Button readMoreButton = view.findViewById(R.id.readmoreButton);
+
+        //The intents which launch those button weblinks
+        picassoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://square.github.io/picasso/"));
+                startActivity(i);
+            }
+        });
+
+        codeScannerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://developers.google.com/ml-kit/vision/barcode-scanning/code-scanner"));
+                startActivity(i);
+            }
+        });
+
+        ebayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://developer.ebay.com/develop"));
+                startActivity(i);
+            }
+        });
+
+        readMoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://github.com/bravoborja/ReadMoreTextView"));
+                startActivity(i);
+            }
+        });
+
+        return view;
     }
 }
