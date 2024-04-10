@@ -9,7 +9,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.example.arbitragetracker.R;
 
@@ -19,6 +23,9 @@ import com.example.arbitragetracker.R;
  * create an instance of this fragment.
  */
 public class CreditsFragment extends Fragment {
+
+    private ScrollView scrollView;
+    private LinearLayout linearLayout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,6 +78,7 @@ public class CreditsFragment extends Fragment {
         Button codeScannerButton = view.findViewById(R.id.googleButton);
         Button ebayButton = view.findViewById(R.id.ebayButton);
         Button readMoreButton = view.findViewById(R.id.readmoreButton);
+        Button mapButton = view.findViewById(R.id.mapButton);
 
         //The intents which launch those button weblinks
         picassoButton.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +114,17 @@ public class CreditsFragment extends Fragment {
                 Intent i = new Intent(Intent.ACTION_VIEW,
                         Uri.parse("https://github.com/bravoborja/ReadMoreTextView"));
                 startActivity(i);
+            }
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String locationName = "Amazing Bins Mega";
+                Uri location =
+                        Uri.parse("geo:42.28599394424269, -83.02437252048058?q=" + Uri.encode(locationName));
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
+                startActivity(mapIntent);
             }
         });
 
