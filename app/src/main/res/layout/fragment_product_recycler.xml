@@ -8,7 +8,6 @@
     tools:context=".productRecycler.ProductRecycler">
 
 
-
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/filter"
         android:layout_width="wrap_content"
@@ -18,7 +17,7 @@
         android:defaultFocusHighlightEnabled="true"
         android:fontFamily="@font/poppins"
         android:text="ACTIVE LISTINGS"
-        android:textColor="?attr/colorOnPrimary"
+        android:textColor="#2E7D32"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/productRecycler"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +31,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="82dp"
         android:fontFamily="@font/poppins"
-        android:text="Looks like your inventory is empty! Tap the + button to scan a barcode or hold to manually enter the code."
+        android:text="@string/emptyList"
         android:textAlignment="center"
         android:textColor="?attr/colorOnPrimary"
         android:textSize="20sp"
@@ -59,9 +58,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        app:tint="@null"
         android:src="@drawable/ic_baseline_playlist_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@null"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

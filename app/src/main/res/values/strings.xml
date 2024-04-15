@@ -57,7 +57,21 @@
     <string name="final_messages">Final Messages</string>
     <string name="final_message_content">Thank you for using our application! If you are ready to start your retail arbitrage endeavours then click the button below to find a nearby location to source for products. Happy Flipping!</string>
     <string name="sourcing_location_button">Local Sourcing Location</string>
+
+    <!-- Nav Drawer and Placeholder Text Strings -->
+
     <string name="nav_products_title">My Products</string>
     <string name="nav_statistics_title">Statistics</string>
     <string name="nav_credits_title">Credits</string>
+    <string name="ebayImageDesc">Image of Ebay Product</string>
+    <string name="price_unavailable">Price Unavailable</string>
+    <string name="ebayItemName">Ebay Item Name</string>
+    <string name="ebayItemDesc">Ebay Item Description</string>
+    <string name="ebayItemPrice">Ebay Item Price</string>
+    <string name="app_icon_image">App Icon Image</string>
+    <string name="delete_item_icon">Delete Item Icon</string>
+    <string name="statistic_title">Statistic Title</string>
+    <string name="statistic_value">Statistic Value</string>
+    <string name="emptyList">Looks like your inventory is empty! Tap the + button to scan a barcode or hold to manually enter the code.</string>
+    <string name="add_to_inventory">Add to inventory</string>
 </resources>

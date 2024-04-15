@@ -45,9 +45,8 @@ import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
 import java.util.ArrayList;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProductRecycler#newInstance} factory method to
- * create an instance of this fragment.
+ * This class represents the Product RecylcerView which has all of the products weve stored
+ * @author Evan Proulx
  */
 public class ProductRecycler extends Fragment {
 

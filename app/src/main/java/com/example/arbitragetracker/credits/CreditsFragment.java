@@ -18,14 +18,10 @@ import android.widget.Toast;
 import com.example.arbitragetracker.R;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link CreditsFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * This fragment class represents the Credits Fragment
+ * @author Tej Baidwan
  */
 public class CreditsFragment extends Fragment {
-
-    private ScrollView scrollView;
-    private LinearLayout linearLayout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

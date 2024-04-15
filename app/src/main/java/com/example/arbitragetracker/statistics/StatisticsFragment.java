@@ -16,6 +16,7 @@ import com.example.arbitragetracker.settings.CurrencyUtil;
 
 /**
  * This class represents the StatisticsFragment which contains the VP of stats
+ * @author Tej Baidwan
  */
 public class StatisticsFragment extends Fragment {
 

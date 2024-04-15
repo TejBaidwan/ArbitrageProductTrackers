@@ -4,24 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp">
+    app:cardCornerRadius="8dp"
+    android:layout_margin="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="466dp"
-        android:background="#BDD9E6">
+        android:layout_height="172dp"
+        android:background="?attr/colorOnSecondary">
 
         <TextView
             android:id="@+id/recyclerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/ebayItemName"
+            android:fontFamily="@font/poppins"
             android:maxLength="20"
             android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="60sp"
+            android:textColor="?attr/colorPrimaryVariant"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.534"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,14 +31,15 @@
             android:id="@+id/recyclerDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/ebayItemDesc"
+            android:fontFamily="@font/poppins"
             android:maxLength="20"
             android:text="TextView"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
-            android:textSize="55sp"
+            android:textColor="?attr/colorPrimaryVariant"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.523"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
             app:layout_constraintTop_toBottomOf="@+id/recyclerName" />
 
@@ -44,22 +47,23 @@
             android:id="@+id/recyclerPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
             android:maxLength="20"
             android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="45sp"
+            android:textColor="?attr/colorPrimaryVariant"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
             app:layout_constraintTop_toBottomOf="@+id/recyclerDescription" />
 
         <ImageView
             android:id="@+id/recyclerImage"
-            android:layout_width="372dp"
-            android:layout_height="353dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/ebayImageDesc"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/placeholder_image"
@@ -67,8 +71,8 @@
 
         <ImageView
             android:id="@+id/deleteBtn"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/customcircle"
@@ -76,5 +80,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+        <CheckBox
+            android:id="@+id/listingStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:fontFamily="@font/poppins"
+            android:text="Mark As Sold"
+            android:textColor="?attr/colorPrimaryVariant"
+            app:layout_constraintStart_toStartOf="@+id/recyclerImage"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -18,6 +18,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 /**
  * This class represents the ViewPagerHost which displays the statistic content
+ * @author Tej Baidwan
  */
 public class ViewPagerHostFragment extends Fragment {
 

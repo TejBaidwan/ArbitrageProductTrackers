@@ -32,19 +32,27 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class handles the RecylerView as its Adapter for displaying the content
+ * @author Tej Baidwan and Evan Proulx
+ */
 public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter.CustomViewHolder> {
+
+    //Properties
     private ArrayList<Product> products;
     private ArrayList<Product> originalProducts;
     private Context context;
     ProductDatabase db;
     NavController navController;
 
+    //Constructor
     public ProductRecyclerAdapter( ArrayList<Product> products, Context context) {
         this.products = products;
         this.originalProducts = new ArrayList<>(products);
         this.context = context;
     }
 
+    //OnCreateViewHolder method
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -53,6 +61,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         return new CustomViewHolder(view);
     }
 
+    //OnBindHolder method
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         Product product = products.get(position);
@@ -73,9 +82,9 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // Update sold status of the product in the database
-                updateSoldStatus(product.getId(), isChecked ? 1 : 0); // Convert boolean isChecked to integer
+                updateSoldStatus(product.getId(), isChecked ? 1 : 0);
                 // Update the product's sold status locally
-                product.setSold(isChecked ? 1 : 0); // Convert boolean isChecked to integer
+                product.setSold(isChecked ? 1 : 0);
             }
         });
 
@@ -112,6 +121,9 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         }return 0;
     }
 
+    /**
+     * This is the CustomViewHolder class used to populate and retrieve the nodes on screen for each recyclerview item
+     */
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         protected TextView name;
@@ -145,6 +157,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         }
     }
 
+    //Update the item sold status via the checkbox
     private void updateSoldStatus(int productId, int sold) {
         // Get an instance of your database
         db = ProductDatabase.getInstance(context);
@@ -175,14 +188,15 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         });
     }
 
+    //Getting the product sold status
     private int getProductStatus(int productId) {
         db = ProductDatabase.getInstance(context);
         Product product = db.getProduct(productId);
         db.close();
-        return product != null ? product.isSold() : -1; // Return -1 if product not found
+        return product != null ? product.isSold() : -1;
     }
 
-
+    //Filter the items based on the toggle switch
     public void filterItems(boolean soldItemsOnly) {
         // Clear the current list only if you want to refresh it every time
         Log.d("FilterItems", "Filtering items. SoldItemsOnly: " + soldItemsOnly);

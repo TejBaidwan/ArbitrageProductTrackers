@@ -5,12 +5,17 @@ import android.content.SharedPreferences;
 
 import androidx.preference.PreferenceManager;
 
+/**
+ * This class represents the CurrencyUtil settings option
+ * @author Evan Proulx
+ */
 public class CurrencyUtil {
     public static String getSelectedCurrency(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getString("currency_preference", "USD");
     }
 
+    //Switching the users currency choice
     public static String getCurrencySymbol(String currencyCode) {
         switch (currencyCode.toLowerCase()) {
             case "usd":
