@@ -1,10 +1,14 @@
 package com.example.arbitragetracker;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -12,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +46,8 @@ public class ProductDetailsFragment extends Fragment {
     public static final String ACTION_TYPE = "action_type";
     Product product;
     EbayAPI ebayAPI;
-
+    ProductDatabase db;
+    NavController navController;
     Button ebayPriceBtn;
     String ebayUrl;
 
@@ -87,10 +93,11 @@ public class ProductDetailsFragment extends Fragment {
         TextView detailDescription = view.findViewById(R.id.detailDescription);
         TextView detailPrice = view.findViewById(R.id.detailPrice);
         Button addToInventoryBtn = view.findViewById(R.id.addToInvBtn);
+        ImageView editPriceBtn = view.findViewById(R.id.editPriceBtn);
         ImageView ebayImageView = view.findViewById(R.id.ebayImgView);
         ebayPriceBtn = view.findViewById(R.id.ebayPrice);
 
-
+        db = ProductDatabase.getInstance(getContext());
         ebayAPI = new EbayAPI(getContext());
         product = getArguments().getParcelable(PRODUCT);
 
@@ -127,9 +134,36 @@ public class ProductDetailsFragment extends Fragment {
                 }
             }
         });
+        editPriceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.CustomAlertDialog);
+                builder.setTitle("Update Product Price:");
+
+                //Add custom dialog to the dialog to get the editText
+                View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.custom_priceedit_dialog, null);
+                builder.setView(dialogView);
+                EditText priceText = dialogView.findViewById(R.id.priceEditText);
+
+                //check if the code is valid.If it is get product
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String priceString = priceText.getText().toString();
+                        if (!priceString.isEmpty()) {
+                            double newPrice = Double.parseDouble(priceString);
+                            product.setPrice(newPrice);
+                            updateProduct(product);
+                        }
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", null);
+                builder.show();
+            }
+        });
 
         getEbayData(product);
-
         //if the ebay product exists, parse products url to a web intent
         ebayPriceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +177,14 @@ public class ProductDetailsFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void updateProduct(Product product){
+        db.updateProduct(product);
+        Log.d("TAG", "PRODUCT" + product);
+        navController = Navigation.findNavController((Activity) getContext(), R.id.nav_host_fragment_content_main);
+        navController.navigate(R.id.nav_recycler);
+
     }
 
     //Retrieves product information from ebay
@@ -167,6 +209,5 @@ public class ProductDetailsFragment extends Fragment {
             ebayPriceBtn.setText(ebayPriceWithSymbol);
             ebayUrl = ebayProduct.getUrl();
         }else{ebayPriceBtn.setText(R.string.ebayError);}
-
     }
 }

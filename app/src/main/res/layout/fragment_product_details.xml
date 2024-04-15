@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/theme_offwhite"
+    android:background="@drawable/customcircle"
     android:fillViewport="true"
     android:orientation="vertical"
     tools:context=".ProductDetailsFragment">
@@ -61,7 +61,7 @@
             android:text="@string/ebayItemDesc"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="16sp"
-            app:colorClickableText="#101010"
+            app:colorClickableText="#737373"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailName"
@@ -103,20 +103,20 @@
             android:id="@+id/ebayPrice"
             android:layout_width="180dp"
             android:layout_height="65dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="70dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="32dp"
             android:background="#FFFFFF"
             android:backgroundTint="?attr/colorOnSecondary"
             android:fontFamily="@font/poppins"
             android:gravity="center"
             android:text="@string/price_unavailable"
             android:textAlignment="center"
-            android:textColor="#039BE5"
+            android:textColor="?attr/colorPrimaryVariant"
             android:textSize="16sp"
             android:textStyle="bold"
             app:icon="@drawable/ic_baseline_launch_24"
-            app:layout_constraintBottom_toTopOf="@+id/addToInvBtn"
+            app:layout_constraintBottom_toTopOf="@+id/editPriceBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailPrice"
             app:toggleCheckedStateOnClick="false" />
@@ -133,5 +133,18 @@
             app:layout_constraintTop_toTopOf="@+id/ebayPrice"
             app:srcCompat="@drawable/ebay_logo"
             tools:srcCompat="@drawable/ebay_logo" />
+
+        <ImageView
+            android:id="@+id/editPriceBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/customcircle"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_price_change_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

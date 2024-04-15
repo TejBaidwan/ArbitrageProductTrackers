@@ -74,4 +74,5 @@
     <string name="statistic_value">Statistic Value</string>
     <string name="emptyList">Looks like your inventory is empty! Tap the + button to scan a barcode or hold to manually enter the code.</string>
     <string name="add_to_inventory">Add to inventory</string>
+    <string name="app_title">Arbitrage Tracker</string>
 </resources>

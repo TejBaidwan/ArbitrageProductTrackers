@@ -17,7 +17,7 @@
         android:defaultFocusHighlightEnabled="true"
         android:fontFamily="@font/poppins"
         android:text="ACTIVE LISTINGS"
-        android:textColor="#2E7D32"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/productRecycler"
         app:layout_constraintEnd_toEndOf="parent"
