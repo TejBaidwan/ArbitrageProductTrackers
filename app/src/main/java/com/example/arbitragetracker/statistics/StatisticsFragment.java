@@ -95,6 +95,10 @@ public class StatisticsFragment extends Fragment {
             statsTitle.setText(mParam1);
             statsImage.setImageResource(mParam2);
             statsValue.setText("Result: " + String.format("%.2f", mParam3));
+        }else{
+            statsTitle.setText(R.string.noItems);
+            statsImage.setImageResource(mParam2);
+            statsValue.setText(R.string.noItemValue);
         }
 
         return view;

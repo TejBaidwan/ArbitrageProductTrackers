@@ -117,17 +117,6 @@ public class ScannerFragment extends Fragment {
             }
         });
 
-//        //Adds products to the database
-//        addBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (productOnScreen != null){
-//                    db.addProduct(productOnScreen);
-//                    Toast.makeText(requireContext(), "Product Added", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
         return view;
     }
 
@@ -142,18 +131,6 @@ public class ScannerFragment extends Fragment {
             public void onInvalidBarcode() {Toast.makeText(requireContext(), "Invalid barcode", Toast.LENGTH_SHORT).show();}
         });
     }
-
-//    //set the retrieved product data to the ui
-//    private void setProductValues(Product product){
-//        prodName.setText(product.getName());
-//        prodDesc.setText(product.getDescription());
-//        prodPrice.setText(String.valueOf(product.getPrice()));
-//        Log.d("TAG", "URL" + product.getImgUrl());
-//        if (productImg!=null){
-//            Picasso.get().load(product.getImgUrl()).into(productImg);
-//        }
-//        productOnScreen = product;
-//    }
 
     //once a product is scanned navigate to the product detail screen with its information
     private void navigateToProductScreen(Product product){
