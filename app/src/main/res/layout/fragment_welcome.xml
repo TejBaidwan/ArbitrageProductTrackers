@@ -53,11 +53,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:backgroundTint="@color/theme_red"
+                android:backgroundTint="@color/theme_green"
                 android:fontFamily="@font/poppins"
                 android:text="@string/webLinkIntent"
-                android:textColor="?attr/colorOnSecondary"
-                android:textColorLink="@color/white"
+                android:textColor="@android:color/black"
+                android:textColorLink="@color/theme_textblack"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -77,11 +77,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:backgroundTint="@color/theme_red"
+                android:backgroundTint="@color/theme_green"
                 android:fontFamily="@font/poppins"
                 android:text="@string/textIntent"
-                android:textColor="?attr/colorOnSecondary"
-                android:textColorLink="@color/white"
+                android:textColor="@android:color/black"
+                android:textColorLink="@color/theme_textblack"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

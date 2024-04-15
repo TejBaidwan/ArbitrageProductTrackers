@@ -60,4 +60,9 @@
     <string name="nav_products_title">My Products</string>
     <string name="nav_statistics_title">Statistics</string>
     <string name="nav_credits_title">Credits</string>
+    <string name="ebayImageDesc">Image of Ebay Product</string>
+    <string name="price_unavailable">Price Unavailable</string>
+    <string name="ebayItemName">Ebay Item Name</string>
+    <string name="ebayItemDesc">Ebay Item Description</string>
+    <string name="ebayItemPrice">Ebay Item Price</string>
 </resources>
