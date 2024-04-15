@@ -18,11 +18,13 @@ import com.example.arbitragetracker.settings.CurrencyUtil;
 public class CustomViewPagerAdapter extends FragmentStateAdapter {
     //Database object
     private ProductDatabase productDatabase;
+    private Context context;
 
     //Constructor
-    public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, ProductDatabase productDatabase) {
+    public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, ProductDatabase productDatabase, Context context) {
         super(fragmentActivity);
         this.productDatabase = productDatabase;
+        this.context = context;
     }
 
     /**
@@ -33,17 +35,24 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
+        String selectedCurrency = CurrencyUtil.getSelectedCurrency(context);
         switch (position) {
             case 0:
-                return StatisticsFragment.newInstance(R.string.statOne, R.drawable.appiconimage, productDatabase.getTotalItemCount(), productDatabase);
+                return StatisticsFragment.newInstance(R.string.statOne, R.drawable.appiconimage, String.valueOf(productDatabase.getTotalItemCount()), productDatabase);
             case 1:
-                return StatisticsFragment.newInstance(R.string.statTwo, R.drawable.appiconimage, productDatabase.getTotalPrice(), productDatabase);
+                String totalWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(productDatabase.getTotalPrice(), selectedCurrency);
+                return StatisticsFragment.newInstance(R.string.statTwo, R.drawable.appiconimage, totalWithSymbol, productDatabase);
             case 2:
-                return StatisticsFragment.newInstance(R.string.statThree, R.drawable.appiconimage, productDatabase.getHighestPrice(), productDatabase);
+                String highestPriceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(productDatabase.getHighestPrice(), selectedCurrency);
+                return StatisticsFragment.newInstance(R.string.statThree, R.drawable.appiconimage, highestPriceWithSymbol, productDatabase);
             case 3:
-                return StatisticsFragment.newInstance(R.string.statFour, R.drawable.appiconimage, productDatabase.getAveragePrice(), productDatabase);
+                String lowestPriceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(productDatabase.getLowestPrice(), selectedCurrency);
+                return StatisticsFragment.newInstance(R.string.statFour, R.drawable.appiconimage, lowestPriceWithSymbol, productDatabase);
+            case 4:
+                String averagePriceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(productDatabase.getAveragePrice(), selectedCurrency);
+                return StatisticsFragment.newInstance(R.string.statFive, R.drawable.appiconimage, averagePriceWithSymbol, productDatabase);
             default:
-                return StatisticsFragment.newInstance(R.string.noItems, R.drawable.appiconimage, R.string.noItemValue, productDatabase);
+                return StatisticsFragment.newInstance(R.string.noItems, R.drawable.appiconimage, String.valueOf(R.string.noItemValue), productDatabase);
         }
     }
 
@@ -53,6 +62,6 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
      */
     @Override
     public int getItemCount() {
-        return 4;
+        return 5;
     }
 }

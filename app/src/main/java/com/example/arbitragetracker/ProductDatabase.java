@@ -160,6 +160,18 @@ public class ProductDatabase extends SQLiteOpenHelper {
         return highest;
     }
 
+    //Method to get the lowest price
+    public double getLowestPrice() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT MIN(" + COLUMN_PRICE + ") FROM " + TABLE_PRODUCTS, null);
+        double lowest = 0;
+        if (cursor.moveToFirst()) {
+            lowest = cursor.getDouble(0);
+        }
+        cursor.close();
+        return lowest;
+    }
+
     // Method to get average price
     public double getAveragePrice() {
         SQLiteDatabase db = this.getReadableDatabase();

@@ -86,7 +86,7 @@ public class ViewPagerHostFragment extends Fragment {
 
         //Finding ViewPager2 and assigning the adapter and page transformer
         viewPager2 = view.findViewById(R.id.vpHost);
-        viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), productDatabase));
+        viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), productDatabase, getContext()));
         viewPager2.setPageTransformer(new DepthPageTransformer());
 
         return view;

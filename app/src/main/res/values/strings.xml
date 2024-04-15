@@ -26,7 +26,8 @@
     <string name="statOne">The Number of Items in your Inventory</string>
     <string name="statTwo">The Total of your Inventory</string>
     <string name="statThree">The Most Expensive Item in your Inventory</string>
-    <string name="statFour">The Average Price of your Inventory Items</string>
+    <string name="statFour">The Least Expensive Item in your Inventory</string>
+    <string name="statFive">The Average Price of your Inventory Items</string>
 
 
     <!-- Preference Titles -->
