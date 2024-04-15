@@ -8,16 +8,20 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.arbitragetracker.CrossViewAnimHandler;
 import com.example.arbitragetracker.Product;
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
+import com.example.arbitragetracker.statistics.DepthPageTransformer;
 
 import java.util.ArrayList;
 
@@ -25,9 +29,15 @@ import java.util.ArrayList;
  * This class represents the Settings Fragment which uses SharedPreferences to persists settings options
  */
 public class SettingsFragment extends PreferenceFragmentCompat {
+
+    //Property for applying setting choice to the ViewPager2
+    private CrossViewAnimHandler crossViewAnimHandler;
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey);
+
+        crossViewAnimHandler = new ViewModelProvider(requireActivity()).get(CrossViewAnimHandler.class);
 
         //Animation disable setting
         CheckBoxPreference disableAnimationsPreference = findPreference("anim_disable");
@@ -38,6 +48,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 // Change the state of disable animation setting
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 preferences.edit().putBoolean("anim_disable", disableAnimations).apply();
+
+                crossViewAnimHandler.setAnimationsEnabled(!disableAnimations);
 
                 return true;
             });
@@ -96,6 +108,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         return concatenatedString.toString();
     }
+
+
 
 
 }

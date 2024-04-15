@@ -103,10 +103,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ebayPrice"
-            android:layout_width="180dp"
-            android:layout_height="65dp"
+            android:layout_width="460dp"
+            android:layout_height="68dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="150dp"
             android:layout_marginBottom="28dp"
             android:background="#FFFFFF"
             android:backgroundTint="?attr/colorOnSecondary"
@@ -127,8 +127,8 @@
 
         <ImageView
             android:id="@+id/ebayImgView"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="286dp"
+            android:layout_height="70dp"
             android:layout_marginStart="150dp"
             android:background="#FFFFFF"
             android:backgroundTint="#000000"

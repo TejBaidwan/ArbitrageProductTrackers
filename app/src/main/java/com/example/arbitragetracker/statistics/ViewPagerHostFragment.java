@@ -5,12 +5,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.arbitragetracker.CrossViewAnimHandler;
 import com.example.arbitragetracker.ProductDatabase;
 import com.example.arbitragetracker.R;
 import com.google.android.material.tabs.TabLayout;
@@ -24,6 +26,7 @@ public class ViewPagerHostFragment extends Fragment {
 
     //ViewPager2 object
     ViewPager2 viewPager2;
+    CrossViewAnimHandler crossViewAnimHandler;
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -103,5 +106,16 @@ public class ViewPagerHostFragment extends Fragment {
         TabLayout tabLayout = view.findViewById(R.id.gallery);
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) ->
                 tab.setText(("\u25CF"))).attach();
+
+        //Setting the animation of the viewpager based on the animation settings option
+        crossViewAnimHandler = new ViewModelProvider(requireActivity()).get(CrossViewAnimHandler.class);
+
+        //Setting the animation to the depth page transformer or null based on the settings toggle choice
+        //This class observes the changes and updates the viewpager as needed with respect to animation toggling
+        crossViewAnimHandler.getAnimationsEnabled().observe(getViewLifecycleOwner(), animationsEnabled -> {
+            if (viewPager2 != null) {
+                viewPager2.setPageTransformer(animationsEnabled ? new DepthPageTransformer() : null);
+            }
+        });
     }
 }
