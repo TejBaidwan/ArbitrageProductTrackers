@@ -31,7 +31,7 @@ public class StatisticsFragment extends Fragment {
     //Parameters
     private int mParam1;
     private int mParam2;
-    private double mParam3;
+    private String mParam3;
 
     public StatisticsFragment() {
         // Required empty public constructor
@@ -47,12 +47,12 @@ public class StatisticsFragment extends Fragment {
      * @return A new instance of fragment StatisticsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static StatisticsFragment newInstance(int param1, int param2, double param3, ProductDatabase database) {
+    public static StatisticsFragment newInstance(int param1, int param2, String param3, ProductDatabase database) {
         StatisticsFragment fragment = new StatisticsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PARAM1, param1);
         args.putInt(ARG_PARAM2, param2);
-        args.putDouble(ARG_PARAM3, param3);
+        args.putString(ARG_PARAM3, param3);
         fragment.setArguments(args);
         fragment.productDatabase = database;
         return fragment;
@@ -68,7 +68,7 @@ public class StatisticsFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
             mParam2 = getArguments().getInt(ARG_PARAM2);
-            mParam3 = getArguments().getDouble(ARG_PARAM3);
+            mParam3 = getArguments().getString(ARG_PARAM3);
         }
     }
 
@@ -92,10 +92,10 @@ public class StatisticsFragment extends Fragment {
 
 
         //Setting the values of the nodes to the bundled information
-        if (mParam1 != 0 && mParam2 != 0 && mParam3 != 0) {
+        if (mParam1 != 0 && mParam2 != 0) {
             statsTitle.setText(mParam1);
             statsImage.setImageResource(mParam2);
-            statsValue.setText("Result: " + String.format("%.2f", mParam3));
+            statsValue.setText("Result: " + mParam3);
         }else{
             statsTitle.setText(R.string.noItems);
             statsImage.setImageResource(mParam2);
