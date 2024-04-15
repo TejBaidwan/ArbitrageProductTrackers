@@ -131,7 +131,6 @@ public class ProductDetailsFragment extends Fragment {
 
         getEbayData(product);
 
-
         //if the ebay product exists, parse products url to a web intent
         ebayPriceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +167,7 @@ public class ProductDetailsFragment extends Fragment {
             String ebayPriceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(ebayProduct.getPrice(), selectedCurrency);
             ebayPriceBtn.setText(ebayPriceWithSymbol);
             ebayUrl = ebayProduct.getUrl();
-        }else{ebayPriceBtn.setText("No prices from ebay.com available");}
+        }else{ebayPriceBtn.setText(R.string.ebayError);}
 
     }
 }

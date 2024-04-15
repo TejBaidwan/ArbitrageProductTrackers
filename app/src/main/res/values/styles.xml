@@ -27,5 +27,4 @@
         <item name="spinBars">true</item>
         <item name="color">?attr/colorOnPrimary</item>
     </style>
-
 </resources>

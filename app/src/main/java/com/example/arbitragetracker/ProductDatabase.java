@@ -25,11 +25,6 @@ public class ProductDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_IMG_URL = "img_url";
     private static final String COLUMN_STATUS = "status";
 
-//    public static final String CREATE_PRODUCTS_TABLE = "CREATE TABLE " +
-//            TABLE_PRODUCTS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
-//            COLUMN_NAME + " TEXT, " + COLUMN_DESCRIPTION + " TEXT, " +
-//            COLUMN_PRICE + " REAL, " + COLUMN_IMG_URL + " TEXT)";
-
     public static final String CREATE_PRODUCTS_TABLE = "CREATE TABLE " +
             TABLE_PRODUCTS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
             COLUMN_NAME + " TEXT, " + COLUMN_DESCRIPTION + " TEXT, " +
@@ -97,7 +92,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
                     cursor.getString(2),
                     cursor.getDouble(3),
                     cursor.getString(4),
-                    cursor.getInt(5)); // Convert 1 to true, 0 to false
+                    cursor.getInt(5));
         }
         cursor.close();
         db.close();
@@ -114,13 +109,14 @@ public class ProductDatabase extends SQLiteOpenHelper {
                     cursor.getString(2),
                     cursor.getDouble(3),
                     cursor.getString(4),
-                    cursor.getInt(5))); // Convert 1 to true, 0 to false
+                    cursor.getInt(5)));
         }
         cursor.close();
         db.close();
         return products;
     }
 
+    //delete single product from db
     public void deleteProduct(int productId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_PRODUCTS, COLUMN_ID + "=?", new String[]{String.valueOf(productId)});
@@ -171,7 +167,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
         return average;
     }
 
-    // Method to get the total number of items in the table (count)
+    // Method to get the total number of items in the table
     public int getTotalItemCount() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_PRODUCTS, null);

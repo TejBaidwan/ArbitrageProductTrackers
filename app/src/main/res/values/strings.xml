@@ -20,6 +20,7 @@
     <string name="textIntent">Get an eBook Link Texted of Retail Arbitrage by Chris Green!</string>
     <string name="phoneHint">Enter your number and click below!</string>
 
+    <string name="ebayError">No prices from ebay.com available</string>
     <string name="noItems">No Products in Inventory. Add products to see statistics!</string>
     <string name="noItemValue">----------</string>
     <string name="statOne">The Number of Items in your Inventory</string>

@@ -40,36 +40,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
-//        //navigate the user to the scanner screen to add new products
-//        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                navController.navigate(R.id.nav_scanner);
-//            }
-//        });
-
-        //Ask user to delete all products from the database
-        binding.appBarMain.fab.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("Delete")
-                        .setMessage("ARE YOU SURE YOU WANT TO DELETE ALL PRODUCTS FROM YOUR INVENTORY?")
-                        .setIcon(R.drawable.ic_baseline_warning_24)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                db = ProductDatabase.getInstance(MainActivity.this);
-                                db.deleteAllProducts();
-                                db.close();
-                                navController.navigate(R.id.nav_recycler);
-                            }
-                        })
-                        .setNegativeButton("NO", null)
-                        .show();
-                return false;
-            }
-        });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -86,11 +56,6 @@ public class MainActivity extends AppCompatActivity {
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-//                if (destination.getId() == R.id.nav_recycler){
-//                    binding.appBarMain.fab.show();
-//                }else{
-//                    binding.appBarMain.fab.hide();
-//                }
                 binding.appBarMain.fab.hide();
             }
         });
