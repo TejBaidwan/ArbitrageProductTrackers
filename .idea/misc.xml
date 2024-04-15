@@ -14,6 +14,7 @@
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_launch_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_list_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_playlist_add_24.xml" value="0.1" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_price_change_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_qr_code_scanner_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_query_stats_24.xml" value="0.1" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.333" />
@@ -33,6 +34,7 @@
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/app_bar_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/content_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/custom_dialog.xml" value="0.3614583333333333" />
+        <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/custom_priceedit_dialog.xml" value="0.3179347826086957" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_credits.xml" value="0.3179347826086957" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_gallery.xml" value="0.3625" />
         <entry key="..\:/Users/evanp/AndroidStudioProjects/ArbitrageProductTrackers/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
