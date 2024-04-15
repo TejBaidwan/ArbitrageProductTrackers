@@ -23,6 +23,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@string/ebayImageDesc"
             android:src="@drawable/placeholder_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +92,7 @@
             android:layout_marginStart="8dp"
             android:backgroundTint="?attr/colorAccent"
             android:fontFamily="@font/poppins"
-            android:text="Add to inventory"
+            android:text="@string/add_to_inventory"
             android:textColor="@color/white"
             app:icon="@drawable/ic_baseline_playlist_add_24"
             app:iconTint="@color/white"
@@ -109,7 +110,7 @@
             android:backgroundTint="?attr/colorOnSecondary"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Price Unavailable"
+            android:text="@string/price_unavailable"
             android:textAlignment="center"
             android:textColor="#039BE5"
             android:textSize="16sp"
@@ -126,11 +127,11 @@
             android:layout_height="65dp"
             android:background="#FFFFFF"
             android:backgroundTint="#000000"
+            android:contentDescription="@string/ebayImageDesc"
             android:src="@drawable/placeholder_image"
             app:layout_constraintEnd_toStartOf="@+id/ebayPrice"
             app:layout_constraintTop_toTopOf="@+id/ebayPrice"
             app:srcCompat="@drawable/ebay_logo"
-            tools:srcCompat="@drawable/ebay_logo"
-            android:contentDescription="TODO" />
+            tools:srcCompat="@drawable/ebay_logo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

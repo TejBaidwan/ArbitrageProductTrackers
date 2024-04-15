@@ -36,6 +36,7 @@
                 android:layout_height="223dp"
                 android:layout_margin="10sp"
                 android:background="#FFEB3B"
+                android:contentDescription="@string/app_icon_image"
                 android:src="@drawable/appiconimage" />
 
             <TextView
@@ -65,12 +66,13 @@
                 android:id="@+id/telephone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:ems="10"
                 android:fontFamily="@font/poppins"
                 android:hint="@string/phoneHint"
                 android:inputType="textPersonName|phone"
                 android:minHeight="48dp"
-                android:textColorHint="@color/theme_red" />
+                android:textColorHint="@android:color/black" />
 
             <Button
                 android:id="@+id/textIntentButton"
