@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2;
 /**
  * A ViewPager2 PageTransformer that applies a depth transformation to the pages.
  * This transformer scales and translates pages based on their position in the ViewPager2.
+ * @author Tej Baidwan
  */
 public class DepthPageTransformer implements ViewPager2.PageTransformer {
 

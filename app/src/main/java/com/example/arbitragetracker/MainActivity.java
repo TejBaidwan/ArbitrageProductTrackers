@@ -23,6 +23,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arbitragetracker.databinding.ActivityMainBinding;
 
+/**
+ * The MainActivity launches the application and handles its navigation
+ */
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;

@@ -20,9 +20,8 @@ import com.example.arbitragetracker.settings.CurrencyUtil;
 import com.squareup.picasso.Picasso;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProductDetailsFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * This class represents the ProductDetailsFragment which displays more specific details about a Product
+ * @author Evan Proulx
  */
 public class ProductDetailsFragment extends Fragment {
 

@@ -3,7 +3,12 @@ package com.example.arbitragetracker;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * This class represents the structure of a Product object
+ */
 public class Product implements Parcelable {
+
+    //Properties
     private int id;
     private String name;
     private String description;
@@ -11,6 +16,7 @@ public class Product implements Parcelable {
     private String imgUrl;
     private int sold;
 
+    //Constructor
     public Product(String name, String description, Double price, String imgUrl) {
         this.name = name;
         this.description = description;
@@ -26,11 +32,12 @@ public class Product implements Parcelable {
         this.sold = soldStatus;
     }
 
+    //No-args constructor
     public Product(){
 
     }
 
-
+    //Getters and Setters
     public String getName() {
         return name;
     }

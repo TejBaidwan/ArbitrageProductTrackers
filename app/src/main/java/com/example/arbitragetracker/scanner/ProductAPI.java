@@ -12,6 +12,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * This class represents the ProductAPI we use in the app
+ * @author Evan Proulx
+ */
 public class ProductAPI {
     private Context context;
 

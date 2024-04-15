@@ -11,12 +11,17 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+/**
+ * This class represents the DatabaseHandler for the backend of this application
+ * @author Evan Proulx and Tej Baidwan
+ */
 public class ProductDatabase extends SQLiteOpenHelper {
     private static ProductDatabase instance;
 
     public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "product_database";
 
+    //Creating the table(s)
     public static final String TABLE_PRODUCTS = "products";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";

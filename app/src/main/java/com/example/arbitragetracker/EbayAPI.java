@@ -19,6 +19,10 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class represents the EbayAPI usage which fetches product info with the EBAY API
+ * @author Evan Proulx
+ */
 public class EbayAPI {
     private Context context;
     //Token will probably expire

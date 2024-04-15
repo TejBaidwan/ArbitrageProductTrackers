@@ -21,6 +21,9 @@ import com.example.arbitragetracker.R;
 
 import java.util.ArrayList;
 
+/**
+ * This class represents the Settings Fragment which uses SharedPreferences to persists settings options
+ */
 public class SettingsFragment extends PreferenceFragmentCompat {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {

@@ -13,6 +13,7 @@ import com.example.arbitragetracker.settings.CurrencyUtil;
 
 /**
  * This class represents the ViewPager adapter which populates the ViewPager found in the Stats Fragment
+ * @author Tej Baidwan
  */
 public class CustomViewPagerAdapter extends FragmentStateAdapter {
     //Database object

@@ -10,6 +10,9 @@ import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
 
+/**
+ * This class represents the Scanner class which allows us to use the barcode scanner feature
+ */
 public class Scanner {
     private Context context;
 
