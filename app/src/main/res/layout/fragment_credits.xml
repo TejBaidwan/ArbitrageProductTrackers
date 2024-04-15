@@ -27,7 +27,7 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/theme_textblack"
-                android:textSize="30sp"
+                android:textSize="@dimen/app_title_size"
                 android:textStyle="bold" />
 
             <TextView
@@ -41,7 +41,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="@string/api_doc_title"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="@dimen/credit_header_size"
                 android:textStyle="bold" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:text="@string/api_list"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="@dimen/content_size" />
 
             <Button
                 android:id="@+id/picassoButton"
@@ -63,7 +63,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="@string/picasso_button"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/content_size"
                 android:textStyle="bold" />
 
             <Button
@@ -75,7 +75,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="@string/google_button"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/content_size"
                 android:textStyle="bold" />
 
             <Button
@@ -86,7 +86,7 @@
                 android:backgroundTint="@color/theme_green"
                 android:fontFamily="@font/poppins"
                 android:text="@string/readmore_button"
-                android:textSize="18sp"
+                android:textSize="@dimen/content_size"
                 android:textStyle="bold" />
 
             <Button
@@ -97,7 +97,7 @@
                 android:backgroundTint="@color/theme_green"
                 android:fontFamily="@font/poppins"
                 android:text="@string/ebay_button"
-                android:textSize="18sp"
+                android:textSize="@dimen/content_size"
                 android:textStyle="bold" />
 
             <TextView
@@ -111,7 +111,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="@string/content_title"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="@dimen/credit_header_size"
                 android:textStyle="bold" />
 
             <TextView
@@ -122,7 +122,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="@string/content_text"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="@dimen/content_size" />
 
             <TextView
                 android:id="@+id/finalMessage"
@@ -135,7 +135,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="@string/final_messages"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="@dimen/credit_header_size"
                 android:textStyle="bold" />
 
             <TextView
@@ -146,7 +146,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="@string/final_message_content"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="@dimen/content_size" />
 
             <Button
                 android:id="@+id/mapButton"
@@ -156,7 +156,7 @@
                 android:backgroundTint="@color/theme_green"
                 android:fontFamily="@font/poppins"
                 android:text="@string/sourcing_location_button"
-                android:textSize="18sp"
+                android:textSize="@dimen/content_size"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
