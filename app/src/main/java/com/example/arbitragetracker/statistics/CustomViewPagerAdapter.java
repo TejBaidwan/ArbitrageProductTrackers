@@ -42,7 +42,7 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
             case 3:
                 return StatisticsFragment.newInstance(R.string.statFour, R.drawable.appiconimage, productDatabase.getAveragePrice(), productDatabase);
             default:
-                return StatisticsFragment.newInstance(R.string.app_name, R.drawable.appiconimage, 404, productDatabase);
+                return StatisticsFragment.newInstance(R.string.noItems, R.drawable.appiconimage, R.string.noItemValue, productDatabase);
         }
     }
 

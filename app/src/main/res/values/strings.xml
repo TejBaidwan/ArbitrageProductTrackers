@@ -20,10 +20,14 @@
     <string name="textIntent">Get an eBook Link Texted of Retail Arbitrage by Chris Green!</string>
     <string name="phoneHint">Enter your number and click below!</string>
 
+    <string name="ebayError">No prices from ebay.com available</string>
+    <string name="noItems">No Products in Inventory. Add products to see statistics!</string>
+    <string name="noItemValue">----------</string>
     <string name="statOne">The Number of Items in your Inventory</string>
     <string name="statTwo">The Total of your Inventory</string>
     <string name="statThree">The Most Expensive Item in your Inventory</string>
     <string name="statFour">The Average Price of your Inventory Items</string>
+
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -53,4 +57,7 @@
     <string name="final_messages">Final Messages</string>
     <string name="final_message_content">Thank you for using our application! If you are ready to start your retail arbitrage endeavours then click the button below to find a nearby location to source for products. Happy Flipping!</string>
     <string name="sourcing_location_button">Local Sourcing Location</string>
+    <string name="nav_products_title">My Products</string>
+    <string name="nav_statistics_title">Statistics</string>
+    <string name="nav_credits_title">Credits</string>
 </resources>
