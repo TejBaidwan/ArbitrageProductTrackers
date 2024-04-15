@@ -51,6 +51,12 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
             case 4:
                 String averagePriceWithSymbol = CurrencyUtil.formatPriceWithCurrencySymbol(productDatabase.getAveragePrice(), selectedCurrency);
                 return StatisticsFragment.newInstance(R.string.statFive, R.drawable.appiconimage, averagePriceWithSymbol, productDatabase);
+            case 5:
+                return StatisticsFragment.newInstance(R.string.statSix, R.drawable.appiconimage,
+                        productDatabase.getNumberOfActiveListings() + "/" + productDatabase.getTotalItemCount(), productDatabase);
+            case 6:
+                return StatisticsFragment.newInstance(R.string.statSeven, R.drawable.appiconimage,
+                        productDatabase.getNumberOfSoldListings() + "/" + productDatabase.getTotalItemCount(), productDatabase);
             default:
                 return StatisticsFragment.newInstance(R.string.noItems, R.drawable.appiconimage, String.valueOf(R.string.noItemValue), productDatabase);
         }
@@ -62,6 +68,6 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
      */
     @Override
     public int getItemCount() {
-        return 5;
+        return 7;
     }
 }

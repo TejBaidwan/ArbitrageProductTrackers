@@ -28,6 +28,8 @@
     <string name="statThree">The Most Expensive Item in your Inventory</string>
     <string name="statFour">The Least Expensive Item in your Inventory</string>
     <string name="statFive">The Average Price of your Inventory Items</string>
+    <string name="statSix">The Number of Active Listings/Total Listings</string>
+    <string name="statSeven">The Number of Sold Listings/Total Listings</string>
 
 
     <!-- Preference Titles -->

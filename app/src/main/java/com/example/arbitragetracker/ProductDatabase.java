@@ -1,5 +1,6 @@
 package com.example.arbitragetracker;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -194,6 +195,38 @@ public class ProductDatabase extends SQLiteOpenHelper {
         }
         cursor.close();
         return count;
+    }
+
+    // Method to get the number of sold listings
+    public int getNumberOfSoldListings() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numberOfSoldListings = 0;
+        // Execute a query to count the number of listings with status = 1 (sold)
+        Cursor cursor =
+                db.rawQuery("SELECT COUNT(*) FROM " + TABLE_PRODUCTS + " WHERE " + COLUMN_STATUS + " = 1", null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                numberOfSoldListings = cursor.getInt(0);
+            }
+            cursor.close();
+        }
+        return numberOfSoldListings;
+    }
+
+    // Method to get the number of active listings
+    public int getNumberOfActiveListings() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numberOfActiveListings = 0;
+        // Execute a query to count the number of listings with status = 0 (active)
+        Cursor cursor =
+                db.rawQuery("SELECT COUNT(*) FROM " + TABLE_PRODUCTS + " WHERE " + COLUMN_STATUS + " = 0", null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                numberOfActiveListings = cursor.getInt(0);
+            }
+            cursor.close();
+        }
+        return numberOfActiveListings;
     }
 
     // Singleton instance getter
