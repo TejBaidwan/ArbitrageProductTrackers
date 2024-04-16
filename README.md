@@ -1,4 +1,5 @@
 # Welcome to The ArbitrageProductTracker!
+![appIconImage](https://github.com/TejBaidwan/ArbitrageProductTrackers/assets/146671383/671115fc-bc31-43e1-82e2-dcb4c338133b)
 
 Need to track products for your retail arbitrage business? APT has you covered! With one barcode scan, you can instantly access all information about a product and 
 store it in your own virtual inventory. APT gives you the power to manage your inventory with simple scan and sell functionality.
