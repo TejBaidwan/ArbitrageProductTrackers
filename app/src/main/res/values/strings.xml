@@ -10,4 +10,72 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="welcomeDrawer">Welcome</string>
+    <string name="welcomeTitle">Welcome to the ArbitrageProductTracker</string>
+    <string name="welcomeContent">Welcome to the ArbitrageProductTracker!\n\n This application allows you to keep track of your selling inventory for your Retail Arbitrage quests! The application allows you to learn more about selling products online with links to helpful resources found below.\n\n There is page which allows you to add products to your inventory through either scanning a product UPC, or manually entering a product UPC.\n\n Your inventory keeps track of your stock that you have, and can be edited, deleted, and added to at your discretion.\n\n There are statistics given to you about your inventory which can help you analyze your current selling situation and make choices.</string>
+    <string name="webLinkIntent">Learn about Amazon FBA from JungleScout</string>
+    <string name="textIntent">Get an eBook Link Texted of Retail Arbitrage by Chris Green!</string>
+    <string name="phoneHint">Enter your number and click below!</string>
+
+    <string name="ebayError">No prices from ebay.com available</string>
+    <string name="noItems">No Products in Inventory. Add products to see statistics!</string>
+    <string name="noItemValue">----------</string>
+    <string name="statOne">The Number of Items in your Inventory</string>
+    <string name="statTwo">The Total of your Inventory</string>
+    <string name="statThree">The Most Expensive Item in your Inventory</string>
+    <string name="statFour">The Least Expensive Item in your Inventory</string>
+    <string name="statFive">The Average Price of your Inventory Items</string>
+    <string name="statSix">The Number of Active Listings/Total Listings</string>
+    <string name="statSeven">The Number of Sold Listings/Total Listings</string>
+
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <!-- Credits Screen content -->
+    <string name="credits_title">Application Credits</string>
+    <string name="api_list">The API\'s used in this application are:</string>
+    <string name="api_doc_title">API Documentation</string>
+    <string name="picasso_button">Picasso for Image Loading</string>
+    <string name="ebay_button">EBay Product API for Product Fetching</string>
+    <string name="google_button">Google Code Scanner for UPC Scanning</string>
+    <string name="content_title">Content Sources</string>
+    <string name="content_text">The textual content in this application is created by ourselves. The intents use external websites which are refrenced in the intent buttons which launch them. The app logo is created by us and any other documentation we used comes from the Android Developers Website.</string>
+    <string name="readmore_button">BorjaBravo\'s READMORE Textview Extension on GitHub</string>
+    <string name="final_messages">Final Messages</string>
+    <string name="final_message_content">Thank you for using our application! If you are ready to start your retail arbitrage endeavours then click the button below to find a nearby location to source for products. Happy Flipping!</string>
+    <string name="sourcing_location_button">Local Sourcing Location</string>
+
+    <!-- Nav Drawer and Placeholder Text Strings -->
+
+    <string name="nav_products_title">My Products</string>
+    <string name="nav_statistics_title">Statistics</string>
+    <string name="nav_credits_title">Credits</string>
+    <string name="ebayImageDesc">Image of Ebay Product</string>
+    <string name="price_unavailable">Price Unavailable</string>
+    <string name="ebayItemName">Ebay Item Name</string>
+    <string name="ebayItemDesc">Ebay Item Description</string>
+    <string name="ebayItemPrice">Ebay Item Price</string>
+    <string name="app_icon_image">App Icon Image</string>
+    <string name="delete_item_icon">Delete Item Icon</string>
+    <string name="statistic_title">Statistic Title</string>
+    <string name="statistic_value">Statistic Value</string>
+    <string name="emptyList">Looks like your inventory is empty! Tap the + button to scan a barcode or hold to manually enter the code.</string>
+    <string name="add_to_inventory">Add to inventory</string>
+    <string name="app_title">Arbitrage Tracker</string>
 </resources>

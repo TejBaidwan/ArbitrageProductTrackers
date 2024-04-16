@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".credits.CreditsFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/theme_offwhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/creditsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_green"
+                android:fontFamily="@font/poppins"
+                android:text="@string/credits_title"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/theme_textblack"
+                android:textSize="@dimen/app_title_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/api_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginRight="10sp"
+                android:background="@color/theme_yellow"
+                android:fontFamily="@font/poppins"
+                android:text="@string/api_doc_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/credit_header_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/api_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:text="@string/api_list"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/content_size" />
+
+            <Button
+                android:id="@+id/picassoButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15sp"
+                android:backgroundTint="@color/theme_green"
+                android:fontFamily="@font/poppins"
+                android:text="@string/picasso_button"
+                android:textColor="@color/black"
+                android:textSize="@dimen/content_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/googleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15sp"
+                android:backgroundTint="@color/theme_green"
+                android:fontFamily="@font/poppins"
+                android:text="@string/google_button"
+                android:textColor="@color/black"
+                android:textSize="@dimen/content_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/readmoreButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15sp"
+                android:backgroundTint="@color/theme_green"
+                android:fontFamily="@font/poppins"
+                android:text="@string/readmore_button"
+                android:textSize="@dimen/content_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/ebayButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15sp"
+                android:backgroundTint="@color/theme_green"
+                android:fontFamily="@font/poppins"
+                android:text="@string/ebay_button"
+                android:textSize="@dimen/content_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/contentTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginRight="10sp"
+                android:background="@color/theme_yellow"
+                android:fontFamily="@font/poppins"
+                android:text="@string/content_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/credit_header_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/contentDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/content_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/content_size" />
+
+            <TextView
+                android:id="@+id/finalMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginRight="10sp"
+                android:background="@color/theme_yellow"
+                android:fontFamily="@font/poppins"
+                android:text="@string/final_messages"
+                android:textColor="@color/black"
+                android:textSize="@dimen/credit_header_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/finalMessageContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/final_message_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/content_size" />
+
+            <Button
+                android:id="@+id/mapButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15sp"
+                android:backgroundTint="@color/theme_green"
+                android:fontFamily="@font/poppins"
+                android:text="@string/sourcing_location_button"
+                android:textSize="@dimen/content_size"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

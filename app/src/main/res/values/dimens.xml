@@ -5,4 +5,14 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Text Dimensions -->
+    <dimen name="app_title_size">30sp</dimen>
+    <dimen name="content_size">18sp</dimen>
+
+    <dimen name="ebay_item_name_size">24sp</dimen>
+    <dimen name="ebay_item_desc_size">18sp</dimen>
+    <dimen name="ebay_item_price_size">24sp</dimen>
+
+    <dimen name="credit_header_size">24sp</dimen>
 </resources>

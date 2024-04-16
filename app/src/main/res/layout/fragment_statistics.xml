@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".statistics.StatisticsFragment">
+
+    <TextView
+        android:id="@+id/statTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_green"
+        android:fontFamily="@font/poppins"
+        android:text="@string/statistic_title"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/theme_textblack"
+        android:textSize="@dimen/app_title_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/statsImage"
+        android:layout_width="match_parent"
+        android:layout_height="318dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/app_icon_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statTitle"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/statsValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/statistic_value"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/credit_header_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

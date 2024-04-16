@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SelectedTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/theme_red</item>
+    </style>
+
+<!-- This fixes dialog so button color is visible-->
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Customize the negative button color -->
+        <item name="android:negativeButtonText">@style/DialogButton</item>
+        <item name="android:positiveButtonText">@style/DialogButton</item>
+    </style>
+    <style name="DialogButton">
+        <item name="android:textColor">@color/theme_textblack</item>
+    </style>
+
+<!--Styles for the toolbar-->
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">?attr/colorOnPrimary</item>
+    </style>
+</resources>

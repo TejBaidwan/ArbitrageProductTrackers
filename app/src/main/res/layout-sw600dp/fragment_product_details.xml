@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_offwhite"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".ProductDetailsFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimary"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/detailImage"
+            android:layout_width="0dp"
+            android:layout_height="233dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/ebayImageDesc"
+            android:src="@drawable/placeholder_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/detailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="30dp"
+            android:text="@string/ebayItemName"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/ebay_item_name_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailImage" />
+
+        <com.borjabravo.readmoretextview.ReadMoreTextView
+            android:id="@+id/detailDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/poppins"
+            android:minHeight="48dp"
+            android:paddingHorizontal="30dp"
+            android:text="@string/ebayItemDesc"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/ebay_item_desc_size"
+            app:colorClickableText="#101010"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailName"
+            app:trimCollapsedText="@string/read_more"
+            app:trimExpandedText="@string/read_less"
+            app:trimLength="200"
+            app:trimMode="trimModeLength"
+            tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/detailPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/ebayItemPrice"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/ebay_item_price_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailDescription" />
+
+        <Button
+            android:id="@+id/addToInvBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="?attr/colorAccent"
+            android:fontFamily="@font/poppins"
+            android:text="@string/add_to_inventory"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_baseline_playlist_add_24"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ebayPrice"
+            android:layout_width="460dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="150dp"
+            android:layout_marginBottom="28dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="?attr/colorOnSecondary"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="@string/price_unavailable"
+            android:textAlignment="center"
+            android:textColor="#039BE5"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_baseline_launch_24"
+            app:layout_constraintBottom_toTopOf="@+id/addToInvBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ebayImgView"
+            app:layout_constraintTop_toBottomOf="@+id/detailPrice"
+            app:layout_constraintVertical_bias="0.499"
+            app:toggleCheckedStateOnClick="false" />
+
+        <ImageView
+            android:id="@+id/ebayImgView"
+            android:layout_width="286dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="150dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#000000"
+            android:contentDescription="@string/ebayImageDesc"
+            android:src="@drawable/placeholder_image"
+            app:layout_constraintEnd_toStartOf="@+id/ebayPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ebayPrice"
+            app:srcCompat="@drawable/ebay_logo"
+            tools:srcCompat="@drawable/ebay_logo" />
+
+        <ImageView
+            android:id="@+id/editPriceBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/customcircle"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_price_change_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

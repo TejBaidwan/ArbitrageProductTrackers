@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    tools:context=".scanner.ScannerFragment">
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="203dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="@color/theme_red"
+        android:fontFamily="@font/poppins"
+        android:text="Scan"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="34sp"
+        app:cornerRadius="500dp"
+        app:icon="@drawable/ic_baseline_qr_code_scanner_24"
+        app:iconTint="?attr/colorOnSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#E8B0B0" />
+
+    <TextView
+        android:id="@+id/enterBarcodeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/poppins"
+        android:text="Manually enter barcode"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/manualEnterEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/manualEnterEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="12"
+        android:textColor="@color/theme_textblack"
+        app:layout_constraintBottom_toTopOf="@+id/manuallyEnterBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/manuallyEnterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/theme_green"
+        android:fontFamily="@font/poppins"
+        android:text="Add"
+        android:textColor="?attr/colorOnSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

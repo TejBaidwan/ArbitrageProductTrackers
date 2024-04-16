@@ -1,3 +1,13 @@
 <resources>
     <dimen name="fab_margin">48dp</dimen>
+
+    <!-- App Text Sizes(Tablet) -->
+    <dimen name="app_title_size">48sp</dimen>
+    <dimen name="content_size">24sp</dimen>
+
+    <dimen name="ebay_item_name_size">30sp</dimen>
+    <dimen name="ebay_item_desc_size">24sp</dimen>
+    <dimen name="ebay_item_price_size">30sp</dimen>
+
+    <dimen name="credit_header_size">30sp</dimen>
 </resources>
