@@ -159,23 +159,9 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
 
     //Update the item sold status via the checkbox
     private void updateSoldStatus(int productId, int sold) {
-        // Get an instance of your database
         db = ProductDatabase.getInstance(context);
-        Log.d("SoldStatus", "Before Update: " + getProductStatus(productId));
-
-//        // Get the product from the database
-//        Product product = db.getProduct(productId);
-//
-//        // Update the sold status of the product
-//        if (product != null) {
-//            product.setSold(sold);
-//            // Update the product in the database
-//            db.updateProduct(product);
-//        }
 
         db.updateProductStatus(productId, sold);
-
-        Log.d("SoldStatus", "After Update: " + getProductStatus(productId));
 
         // Close the database connection
         db.close();
@@ -188,18 +174,8 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         });
     }
 
-    //Getting the product sold status
-    private int getProductStatus(int productId) {
-        db = ProductDatabase.getInstance(context);
-        Product product = db.getProduct(productId);
-        db.close();
-        return product != null ? product.isSold() : -1;
-    }
-
     //Filter the items based on the toggle switch
     public void filterItems(boolean soldItemsOnly) {
-        // Clear the current list only if you want to refresh it every time
-        Log.d("FilterItems", "Filtering items. SoldItemsOnly: " + soldItemsOnly);
         products.clear();
         List<Product> filteredProducts = new ArrayList<>();
 
@@ -210,13 +186,12 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
             // Add the product to the filtered list if it matches the condition
             if (shouldAdd) {
                 filteredProducts.add(product);
-                Log.d("FilterItems", "Added product: " + product.getName() + ", Sold status: " + product.isSold());
             }
         }
 
         products.addAll(filteredProducts);
 
-        notifyDataSetChanged(); // Notify adapter of dataset change
+        notifyDataSetChanged();
     }
 
 }
